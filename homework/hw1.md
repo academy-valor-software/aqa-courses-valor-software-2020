@@ -4,6 +4,8 @@
 
 Build CSS-selectors for the next elements:
 
+###### Note: create .txt file and write selectors there.
+ 
 ### :pencil: 1.
 1. Open [Google](https://google.com)
 2. Make any search
@@ -38,7 +40,22 @@ Build CSS-selectors for the next elements:
 
 <img src="/homework/assets/hw1_4.png" alt="HW1.4" width="75%">
 
-## :mailbox_with_mail: Sending results:
+## :mailbox_with_mail: Preparing and sending results:
 
-1. Write a letter with your answers to [ellina.frolova@valor-software.com](mailto:ellina.frolova@valor-software.com)
-2. Post update that you've finish your HW1 in [summarized table](https://docs.google.com/spreadsheets/d/1pIVFmzoo6lkchfcUjxpUFov7u7m09iY_4knNajdR9SU/edit?usp=sharing) and into the [#hw-review-request](https://valorsoftware-qa2020.slack.com/archives/CUC73SVC4) chat.
+1. Check yourself - review your code.
+2. Check that your changes are ready to commit:
+```
+    git status
+```
+3. Check that you're still on your branch:
+```
+    git branch
+```
+4. Commit your file with new commit:
+```
+    git add .
+    git commit -m "tests(selectors): HW1"
+    git push origin `selectors-surname`
+```
+5. Create Pull Request with your changes from `css-selectors-surname` to `master` and add _'Ready for review'_ label.
+6. Post update that you've finish your HW1 in [summarized table](https://docs.google.com/spreadsheets/d/1pIVFmzoo6lkchfcUjxpUFov7u7m09iY_4knNajdR9SU/edit?usp=sharing) and into the [#hw-review-request](https://valorsoftware-qa2020.slack.com/archives/CUC73SVC4) chat.
