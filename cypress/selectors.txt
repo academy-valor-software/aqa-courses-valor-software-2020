@@ -1,0 +1,15 @@
+1. Google search:
+//input[contains(@title,"Search")]
+input.gLFyf
+
+2. Google settings btn:
+a[href$='/preferences']
+#abar_button_opt
+//a[contains(@role,'button') and contains(@href,'preferences')]
+
+3. ng-book site:
+//a[contains(@title,'Permanent Link to Managing User Permissions in Angular using Akita')]/parent::h2
+h2 a[href*="managing-user-permissions-in-angular"]
+
+4. Features page:
+#contents li:nth-child(3)
