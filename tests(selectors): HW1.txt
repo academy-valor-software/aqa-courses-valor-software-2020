@@ -1,0 +1,11 @@
+- Create selector for the main input on the top of the page:
+ div [class=RNNXgb] or div [class=SDkEP]
+
+- Create selector for the button with "Settings" name under the input in the right corner:
+ “abar_button_opt or a[id=abar_button_opt]
+
+- Create selector for blog post "Managing User Permissions in Angular using Akita”:
+header a[title*="Managing User Permissions"] or header a[href*="managing-user-permissions"]
+
+- Open features page 2. Create selector for "TypeScript" header in the Content section:
+ul[class=curriculum-list]>li:nth-child(3)
