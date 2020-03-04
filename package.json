@@ -17,7 +17,7 @@
     "cypress": "4.0.2",
     "jasmine": "3.5.0",
     "jasmine-spec-reporter": "4.2.1",
-    "protractor": "5.4.3",
+    "protractor": "^5.4.3",
     "protractor-jasmine2-html-reporter": "0.0.7",
     "ts-loader": "6.2.1",
     "ts-node": "8.6.2",
