@@ -57,5 +57,5 @@ Build CSS-selectors for the next elements:
     git commit -m "tests(selectors): HW1"
     git push origin `selectors-surname`
 ```
-5. Create Pull Request with your changes from `css-selectors-surname` to `master` and add _'Ready for review'_ label.
+5. Create Pull Request with your changes from `selectors-surname` to `master` and add _'Ready for review'_ label.
 6. Post update that you've finish your HW1 in [summarized table](https://docs.google.com/spreadsheets/d/1pIVFmzoo6lkchfcUjxpUFov7u7m09iY_4knNajdR9SU/edit?usp=sharing) and into the [#hw-review-request](https://valorsoftware-qa2020.slack.com/archives/CUC73SVC4) chat.
