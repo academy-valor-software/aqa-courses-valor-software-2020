@@ -6,6 +6,7 @@
 
 #Protractor, Jasmine
 /results/*
+/protractor/results/*
 
 #Cypress
 /cypress/videos/*
