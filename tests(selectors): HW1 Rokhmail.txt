@@ -1,2 +1,16 @@
-1 Google Search
+1. Google Search:
 input.gLFyf
+
+2. Google setting button:
+#abar_button_opt
+
+3. ng-book site:
+ h2 a[href*=user]
+
+4. Features page:
+
+   #contents li:nth-child(3)
+
+or
+
+.curriculum-list li:nth-child(3) span:first-child
