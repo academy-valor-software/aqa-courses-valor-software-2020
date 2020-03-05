@@ -1,0 +1,6 @@
+Home work#1 - CSS Selectors:
+
+1. input[aria-label="Search"]
+2. g-header-menu #abar_button_opt
+3. .post header [href$="managing-user-permissions-in-angular-using-akita/"]
+4. #contents ul li:nth-child(3)
