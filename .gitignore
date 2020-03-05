@@ -12,3 +12,6 @@
 /cypress/videos/*
 /cypress/screenshots/*
 /cypress/integration/examples/*
+
+#Package lock
+package-lock.json
