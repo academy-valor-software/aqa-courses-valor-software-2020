@@ -38,7 +38,7 @@ In this branch - cover test case by e2e test with Protractor.
 - url still contains /login route;
 - error message appears and it equals to _'Please enter a valid username or email address.'_
 
-<img src="/homework/assets/hw2_1.png" alt="HW2.1" width="40%">
+<img src="/homework/todo/assets/hw2_1.png" alt="HW2.1" width="40%">
 
 -----
 
@@ -56,7 +56,7 @@ In this branch - cover test case by e2e test with Protractor.
 - url still contains /login route;
 - error message appears and it equals to _'Incorrect username or password provided.'_
 
-<img src="/homework/assets/hw2_2.png" alt="HW2.2" width="40%">
+<img src="/homework/todo/assets/hw2_2.png" alt="HW2.2" width="40%">
 
 ----
 
@@ -76,7 +76,7 @@ In this branch - cover test case by e2e test with Protractor.
 
 **Expected result:** added skills on step2,3 are shown in the skills list of updates section.
 
-<img src="/homework/assets/hw2_3.png" alt="HW2.3" width="70%">
+<img src="/homework/todo/assets/hw2_3.png" alt="HW2.3" width="70%">
 
 ----
 
