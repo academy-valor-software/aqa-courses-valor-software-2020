@@ -11,7 +11,7 @@ Build CSS-selectors for the next elements:
 2. Make any search
 3. Create selector for the main input on the top of the page
 
-<img src="/homework/assets/hw1_1.png" alt="HW1.1" width="75%">
+<img src="/homework/todo/assets/hw1_1.png" alt="HW1.1" width="75%">
 
 ----
 
@@ -20,7 +20,7 @@ Build CSS-selectors for the next elements:
 1. Open [Google](https://google.com)
 2. Create selector for the button with "Settings" name under the input in the right corner.
 
-<img src="/homework/assets/hw1_2.png" alt="HW1.2" width="75%">
+<img src="/homework/todo/assets/hw1_2.png" alt="HW1.2" width="75%">
 
 ----
 
@@ -29,7 +29,7 @@ Build CSS-selectors for the next elements:
 1. Open [ng-book](https://blog.ng-book.com/) site 
 2. Create selector for blog post "Managing User Permissions in Angular using Akita"
 
-<img src="/homework/assets/hw1_3.png" alt="HW1.3" width="75%">
+<img src="/homework/todo/assets/hw1_3.png" alt="HW1.3" width="75%">
 
 ----
 
@@ -38,7 +38,7 @@ Build CSS-selectors for the next elements:
 1.Open [features page](https://ng-book.com/2/#features)
 2. Create selector for "TypeScript" header in the Content section
 
-<img src="/homework/assets/hw1_4.png" alt="HW1.4" width="75%">
+<img src="/homework/todo/assets/hw1_4.png" alt="HW1.4" width="75%">
 
 ## :mailbox_with_mail: Preparing and sending results:
 
