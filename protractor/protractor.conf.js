@@ -5,7 +5,7 @@ const JR = require('protractor-jasmine2-html-reporter');
 const testResultsDir = 'results';
 
 exports.config = {
-    baseUrl: 'http://google.com',
+    baseUrl: 'https://www.freelancer.com',
     directConnect: true,
 
     capabilities: {
@@ -60,6 +60,5 @@ exports.config = {
                 }
             })
         );
-
     }
 };

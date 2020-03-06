@@ -1,7 +1,7 @@
-import {$, $$} from 'protractor';
+import { $, $$ } from 'protractor';
 
-import {BaseComponent} from './base.component';
-import {IEducation} from '../data/edication-data.interface';
+import { BaseComponent } from './base.component';
+import { IEducation } from '../data/edication-data.interface';
 
 export class ProfilePo extends BaseComponent {
   readonly url = '/u/';
@@ -30,7 +30,7 @@ export class ProfilePo extends BaseComponent {
   }
 
   public async getProfSummaryText(): Promise<string> {
-    return this.textProfSummary.getText()
+    return this.textProfSummary.getText();
   }
 
   public async getHourRateText(): Promise<string> {
@@ -58,10 +58,10 @@ export class ProfilePo extends BaseComponent {
   }
 
   public async getEducationDegree(): Promise<string> {
-    return this.textLastAddedDegree.getText()
+    return this.textLastAddedDegree.getText();
   }
 
   public async getEducationDetails(): Promise<string> {
-    return  this.textLastAddedEducDetails.getText();
+    return this.textLastAddedEducDetails.getText();
   }
 }

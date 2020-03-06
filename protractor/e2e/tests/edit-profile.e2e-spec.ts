@@ -1,4 +1,4 @@
-import {browser} from 'protractor';
+import { browser } from 'protractor';
 
 import { LoginPo } from '../pages/login.po';
 import { ProfilePo } from '../pages/profile.po';

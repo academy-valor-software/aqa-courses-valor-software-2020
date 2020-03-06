@@ -1,4 +1,4 @@
-import {IEducation} from './edication-data.interface';
+import { IEducation } from './edication-data.interface';
 
 export const educationData: IEducation = {
   country: 'Algeria',

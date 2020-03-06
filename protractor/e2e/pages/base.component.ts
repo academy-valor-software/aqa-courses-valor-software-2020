@@ -1,4 +1,4 @@
-import {browser, ElementFinder, ExpectedConditions as EC} from 'protractor';
+import { browser, ElementFinder, ExpectedConditions as EC } from 'protractor';
 
 export class BaseComponent {
   url = '/';
