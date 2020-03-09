@@ -1,4 +1,4 @@
-1  RNNXgb.RNNXgb
+1  [class="RNNXgb"]
 2  #abar_button_opt
-3  [class = row]  > :nth-child(2) > :nth-of-type(1) > :nth-child(2) > h2 > a[href^="https"]
-4  [class="curriculum-list"] > :nth-of-type(3) > :nth-of-type(1)
+3  h2 [href*="https://blog.ng-book.com/managing-us"]
+4  #contents :nth-of-type(3) span:nth-child(1)
