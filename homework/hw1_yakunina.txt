@@ -1,4 +1,4 @@
-1. input[type=text][name=q]
-2. g-header-menu > a[href*=preferences]
-3. header a[href*=permissions][href*=akita]
-4. .curriculum-list li:nth-child(3) .curriculum-list-item-name
+1. input.gsfi
+2. #abar_button_opt
+3. header [href*=permissions-in-angular-using-akita]
+4. .curriculum-list-item:nth-child(3) .curriculum-list-item-name
