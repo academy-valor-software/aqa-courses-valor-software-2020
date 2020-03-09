@@ -8,6 +8,14 @@ export function formatUserName(firstName: string, lastName: string): string {
   return `${firstName} ${lastName[0]}.`;
 }
 
+export function formatErrorMessage(): string {
+  return `Incorrect username or password provided.`;
+}
+
+export function formatFormError(): string {
+  return `Please enter a valid username or email address.`;
+}
+
 export function concatEducationDetailsString(education: IEducation): string {
   const {endYear, startYear, university, country} = education;
 
