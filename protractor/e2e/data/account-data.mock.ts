@@ -1,5 +1,5 @@
 import { getRandom } from '../helper/utils';
-import {IAccount, IIncorrectAccountData} from './account-data.interface';
+import { IAccount, IIncorrectAccountData } from './account-data.interface';
 
 export const accountData: IAccount = {
   email: 'liliiakasianenko@gmail.com',
