@@ -5,24 +5,20 @@ const JR = require('protractor-jasmine2-html-reporter');
 const testResultsDir = 'results';
 
 exports.config = {
-    baseUrl: 'https://www.freelancer.com',
+    baseUrl: 'https://www.freelancer.com/',
     directConnect: true,
-
     capabilities: {
         browserName: 'chrome',
-        shardTestFiles: true,
+        shardTestFiles: 'false',
         maxInstances: 1,
-        chromeOptions: {
-            args: [ '--window-size=1920x1080'], // 'headless',
-            prefs: {
-                'profile.managed_default_content_settings.notifications': 1
-            }
+        'chromeOptions': {
+            args: ["--incognito", '--headless', '--disable-gpu', '--no-sandbox']
         }
     },
 
-    specs: ['./e2e/*.e2e-spec.ts'],
+    specs: ['./e2e/tests/*.e2e-spec.ts'],
     exclude: [],
-
+    getPageTimeout: 10000,
     framework: 'jasmine',
     allScriptsTimeout: 60000,
 
@@ -46,8 +42,7 @@ exports.config = {
 
         browser.driver
             .manage()
-            .window()
-            .maximize();
+            .window();
 
         let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
@@ -60,5 +55,6 @@ exports.config = {
                 }
             })
         );
+
     }
 };

@@ -1,22 +1,20 @@
+import {browser, $} from 'protractor';
 
-import { formatUserName } from '../helper/utils';
-import { LoginPo } from '../pages/login.po';
-import { DashboardPo } from '../pages/dashboard.po';
-import { accountData } from '../data/account-data.mock';
+describe('#Login functionality', function () {
+    const username = '#username';
+    const password = '#password';
 
-describe('Login functionality', () => {
+    it('=> Login with correct email and password' , async () => {
+        await browser.get('/login?w=f&ngsw-bypass=');
+        await $(username).clear();
+        await $(username).sendKeys('artembashlak@gmail.com');
+        await $(password).clear();
+        await $(password).sendKeys('fuck123.');
+        await $('#login_btn').click();
 
-  const { email, password, userId, firstName, lastName } = accountData;
-
-  const loginPage = new LoginPo();
-  const dashboardPage = new DashboardPo();
-
-  it('should check ability to login with CORRECT password and email', async () => {
-    await loginPage.open();
-    await loginPage.login(email, password);
-
-    expect(await dashboardPage.isUrlOpened()).toBe(true);
-    expect(await dashboardPage.getUserInitials()).toEqual(formatUserName(firstName, lastName));
-    expect(await dashboardPage.getUserId()).toEqual('@' + userId);
-  });
+        expect(await browser.getCurrentUrl()).toContain('dashboard');
+        expect(await $('fl-heading.Username-displayName').getText()).toContain('Artem');
+        expect(await $('fl-heading.Username-userId').getText()).toEqual('@abashlak');
+    });
 });
+
