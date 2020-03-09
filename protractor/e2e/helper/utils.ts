@@ -1,4 +1,4 @@
-import { IEducation } from '../data/edication-data.interface';
+import {IEducation} from '../data/education-data.interface';
 
 export function getRandom(): number {
   return Math.floor(Math.random() * 1000);
@@ -6,6 +6,10 @@ export function getRandom(): number {
 
 export function formatUserName(firstName: string, lastName: string): string {
   return `${firstName} ${lastName[0]}.`;
+}
+
+export function getEmailWithoutDomain(email: string): string {
+    return `${email.substring(0, email.indexOf('@'))}`;
 }
 
 export function concatEducationDetailsString(education: IEducation): string {
