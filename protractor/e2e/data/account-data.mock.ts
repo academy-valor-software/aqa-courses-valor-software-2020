@@ -5,6 +5,11 @@ export const accountData: IAccount = {
   email: 'MasalitinJW@gmail.com',
   password: 'Jenya123qaZ',
 
+  wrongEmail : 'masalitinJ@',
+  wrongPassword : 'smdjwdwjdw',
+
+
+
   firstName: 'Evgeniy',
   lastName: 'Masalitin',
   userId: 'GenuineMas',
