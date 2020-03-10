@@ -1,5 +1,5 @@
 import { getRandom } from '../helper/utils';
-import { IAccount, IIncorrectAccountData } from './account-data.interface';
+import { IAccount } from './account-data.interface';
 
 export const accountData: IAccount = {
   email: 'liliiakasianenko@gmail.com',
@@ -17,7 +17,5 @@ export const accountData: IAccount = {
   hourRate: getRandom().toString(),
 };
 
-export const incorrectAccountData: IIncorrectAccountData = {
-  incorrectEmail: 'liliiakasianenko@',
-  incorrectPassword: 'UKsa78+WIND'
-};
+export const incorrectEmail = 'liliiakasianenko@';
+export const incorrectPassword = 'UKsa78+WIND';

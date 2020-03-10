@@ -1,4 +1,5 @@
 import { IEducation } from '../data/edication-data.interface';
+import { incorrectCredentialsError, incorrectEmailError } from '../data/login-data.mock';
 
 export function getRandom(): number {
   return Math.floor(Math.random() * 1000);
@@ -9,11 +10,11 @@ export function formatUserName(firstName: string, lastName: string): string {
 }
 
 export function formatErrorMessage(): string {
-  return `Incorrect username or password provided.`;
+  return incorrectCredentialsError;
 }
 
 export function formatFormError(): string {
-  return `Please enter a valid username or email address.`;
+  return incorrectEmailError;
 }
 
 export function concatEducationDetailsString(education: IEducation): string {

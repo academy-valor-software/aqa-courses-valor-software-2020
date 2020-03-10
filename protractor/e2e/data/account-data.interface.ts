@@ -10,8 +10,3 @@ export interface IAccount {
   summary: string;
   hourRate: string;
 }
-
-export interface IIncorrectAccountData {
-  incorrectEmail: string;
-  incorrectPassword: string;
-}
