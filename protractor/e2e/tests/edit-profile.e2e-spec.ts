@@ -49,15 +49,11 @@ describe('Profile functionality', () => {
   });
 
   afterEach(async () => {
-    await browser.waitForAngularEnabled(true);
     await browser.executeScript('window.sessionStorage.clear();');
     await browser.executeScript('window.localStorage.clear();');
-    await browser.manage().deleteAllCookies();
   });
 
   it('should be possible to change skills section', async () => {
-    const html5FilteredUpdates = element(by.xpath('//label[contains(text(),\'HTML5\')]'));
-    const seoFilteredUpdates = element(by.xpath('//label[contains(text(),\'SEO\')]'));
     await loginPage.open();
     await loginPage.login(email, password);
 
@@ -65,8 +61,8 @@ describe('Profile functionality', () => {
 
     await dashboardPage.addSeoAndHtml5Skills();
 
-    expect(html5FilteredUpdates.getText()).toEqual('HTML5');
-    expect(seoFilteredUpdates.getText()).toEqual('SEO');
+    expect(dashboardPage.getHtml5Text()).toEqual('HTML5');
+    expect(dashboardPage.getSeoText()).toEqual('SEO');
   });
 });
 

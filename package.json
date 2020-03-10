@@ -7,7 +7,7 @@
   },
   "license": "UNLICENSED",
   "scripts": {
-    "pree2e-tests": "npx webdriver-manager update",
+    "pree2e-tests": "webdriver-manager update",
     "e2e-tests": "protractor protractor/protractor.conf.js",
     "cy:open": "cypress open",
     "cy:run": "cypress run",

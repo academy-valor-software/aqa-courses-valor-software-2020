@@ -31,6 +31,14 @@ export class DashboardPo extends BaseComponent {
     return this.textUserId.getText();
   }
 
+  async getHtml5Text(): Promise<string> {
+    return this.html5FilteredUpdates.getText();
+  }
+
+  async getSeoText(): Promise<string> {
+    return this.seoFilteredUpdates.getText();
+  }
+
   async addSeoAndHtml5Skills(): Promise<void> {
     await browser.wait(this.until.presenceOf(this.profilePageButton));
     await this.profilePageButton.click();
