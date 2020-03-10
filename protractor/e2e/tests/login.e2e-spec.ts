@@ -2,17 +2,20 @@ import { formatUserName } from '../helper/utils';
 import { LoginPo } from '../pages/login.po';
 import { DashboardPo } from '../pages/dashboard.po';
 import { accountData } from '../data/account-data.mock';
-import {$, browser, by, element, protractor} from 'protractor';
-import { ExpectedConditions as EC } from 'protractor';
+import { $, browser } from 'protractor';
+import { loginErrorMsg } from '../data/login-data.mock';
 
 describe('Login functionality', () => {
 
     const { email, password, userId, firstName, lastName } = accountData;
+    const { invalidEmailOrPassMsg, invalidEmailFormatMsg } = loginErrorMsg;
     const loginPage = new LoginPo();
     const dashboardPage = new DashboardPo();
+    const { errorMsg } = loginPage;
 
     beforeEach(async () => {
         await browser.manage().deleteAllCookies();
+        await loginPage.open();
     });
 
     afterEach(async () => {
@@ -22,7 +25,6 @@ describe('Login functionality', () => {
     });
 
     it('should check ability to login with CORRECT password and email', async () => {
-        await loginPage.open();
         await loginPage.login(email, password);
 
         expect(await dashboardPage.isUrlOpened()).toBe(true);
@@ -31,27 +33,14 @@ describe('Login functionality', () => {
     });
 
     it('should fail because of the invalid email format' , async () => {
-        const errorMessageSelector = element(by.xpath('//span[contains(text(),\'Incorrect username or password provided.\')]'));
-        const expectedErrorMessage = 'Incorrect username or password provided.';
-
-        await loginPage.open();
         await loginPage.login('email', password);
-
-        expect(errorMessageSelector.getText()).toEqual(expectedErrorMessage);
-        expect(await browser.getCurrentUrl()).toContain('login');
+        expect(await loginPage.checkAlertMessage(errorMsg, invalidEmailFormatMsg));
     });
 
 
     it('should fail because of the invalid email/password' , async () => {
-        const errorMessageSelector = $('div.form-error');
-        const expectedErrorMessage = 'Please enter a valid username or email address.';
-
-        await loginPage.open();
         await loginPage.login('artembashlak@', password);
-        await browser.wait(EC.visibilityOf(errorMessageSelector), 10000, 'Too long :(');
-
-        expect(errorMessageSelector.getText()).toEqual(expectedErrorMessage);
-        expect(await browser.getCurrentUrl()).toContain('login');
+        expect(await loginPage.checkAlertMessage(errorMsg, invalidEmailOrPassMsg));
     });
 });
 

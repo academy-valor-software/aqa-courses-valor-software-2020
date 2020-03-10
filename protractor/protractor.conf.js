@@ -15,7 +15,6 @@ exports.config = {
             args: ["--incognito", '--headless', '--disable-gpu', '--no-sandbox']
         }
     },
-
     specs: ['./e2e/tests/*.e2e-spec.ts'],
     exclude: [],
     getPageTimeout: 10000,
