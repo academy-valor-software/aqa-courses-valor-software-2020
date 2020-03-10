@@ -1,5 +1,4 @@
-import {browser, by, element} from 'protractor';
-
+import { browser } from 'protractor';
 import { LoginPo } from '../pages/login.po';
 import { ProfilePo } from '../pages/profile.po';
 import { HeaderPo } from '../pages/header.po';
@@ -56,7 +55,11 @@ describe('Profile functionality', () => {
   });
 
   it('should be possible to change skills section', async () => {
-    await dashboardPage.addSeoAndHtml5Skills();
+    await dashboardPage.editProfile();
+    await dashboardPage.editProfileSkills();
+    await dashboardPage.addNewSkills();
+    await dashboardPage.navigationCheckFilters();
+
     expect(dashboardPage.getHtml5Text()).toEqual('HTML5');
     expect(dashboardPage.getSeoText()).toEqual('SEO');
   });

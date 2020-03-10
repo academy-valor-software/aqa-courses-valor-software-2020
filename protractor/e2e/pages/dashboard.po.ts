@@ -56,4 +56,31 @@ export class DashboardPo extends BaseComponent {
     await safeClick(this.updatesNavigation);
     await safeClick(this.updatesNavigationFilterBtn);
   }
+
+  async editProfile(): Promise<void> {
+    await safeClick(this.profilePageBtn);
+    await safeClick(this.editProfileBtn);
+  }
+
+  async editProfileSkills(): Promise<void> {
+    await safeClick(this.addSkillBtn);
+    await safeClick(this.addSkillModal);
+    await this.addSkillInput.click();
+  }
+
+  async addNewSkills(): Promise<void> {
+    await safeClick(this.addSkillInput);
+    await this.addSkillInput.sendKeys('SEO');
+    await safeClick(this.seoSkillSelector);
+    await this.addSkillInput.clear();
+    await this.addSkillInput.sendKeys('HTML5');
+    await safeClick(this.html5SkillSelector);
+    await this.saveSkillBtn.click();
+  }
+
+  async navigationCheckFilters(): Promise<void> {
+    await browser.wait(this.until.visibilityOf(this.updatesNavigation), 10000, 'fail to find updates in nav bar');
+    await safeClick(this.updatesNavigation);
+    await safeClick(this.updatesNavigationFilterBtn);
+  }
 }
