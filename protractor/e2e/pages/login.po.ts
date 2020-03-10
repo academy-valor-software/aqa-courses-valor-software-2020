@@ -2,7 +2,7 @@ import { $ } from 'protractor';
 import { BaseComponent } from './base.component';
 
 export class LoginPo extends BaseComponent {
-  readonly url = '/login';
+  readonly url = '/login?w=f&ngsw-bypass=';
 
   private readonly inputUserName = $('#username');
   private readonly inputPassword = $('#password');

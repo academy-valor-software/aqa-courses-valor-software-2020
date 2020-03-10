@@ -1,4 +1,5 @@
 import { IEducation } from '../data/edication-data.interface';
+import {browser, ElementFinder, protractor} from 'protractor';
 
 export function getRandom(): number {
   return Math.floor(Math.random() * 1000);
@@ -15,4 +16,10 @@ export function concatEducationDetailsString(education: IEducation): string {
   return `${university}, ${country}\n` +
          `${startYear} - ${endYear}\n` +
          `(${educationDuration} years)`;
+}
+
+export async function safeClick(element: ElementFinder): Promise<void> {
+  const EC = protractor.ExpectedConditions;
+  await browser.wait(EC.presenceOf(element));
+  await element.click();
 }

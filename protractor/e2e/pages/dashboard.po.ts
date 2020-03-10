@@ -1,11 +1,11 @@
 import {$, browser, by, element, ElementFinder, protractor} from 'protractor';
 
 import { BaseComponent } from './base.component';
+import {safeClick} from '../helper/utils';
 
 export class DashboardPo extends BaseComponent {
   readonly url = '/dashboard';
   readonly until = protractor.ExpectedConditions;
-
 
   private readonly editProfileButton = element(by.xpath('//button[@class=\'btn btn-large btn-info btn-edit-trigger\']'));
   private readonly profilePageButton = element(by.xpath('//a[contains(text(),\'Profile Page\')]'));
@@ -40,34 +40,20 @@ export class DashboardPo extends BaseComponent {
   }
 
   async addSeoAndHtml5Skills(): Promise<void> {
-    await browser.wait(this.until.presenceOf(this.profilePageButton));
-    await this.profilePageButton.click();
-
-    await browser.wait(this.until.presenceOf(this.editProfileButton));
-    await this.editProfileButton.click();
-
-    await browser.wait(this.until.presenceOf(this.addSkillButton));
-    await this.addSkillButton.click();
-
-    await browser.wait(this.until.presenceOf(this.addSkillModal));
+    await safeClick(this.profilePageButton);
+    await safeClick(this.editProfileButton);
+    await safeClick(this.addSkillButton);
+    await safeClick(this.addSkillModal);
     await this.addSkillInput.click();
+    await safeClick(this.addSkillInput);
     await this.addSkillInput.sendKeys('SEO');
-
-    await browser.wait(this.until.presenceOf(this.seoSkillSelector));
-    await this.seoSkillSelector.click();
-
+    await safeClick(this.seoSkillSelector);
     await this.addSkillInput.clear();
     await this.addSkillInput.sendKeys('HTML5');
-
-    await browser.wait(this.until.presenceOf(this.html5SkillSelector));
-    await this.html5SkillSelector.click();
+    await safeClick(this.html5SkillSelector);
     await this.saveSkillButton.click();
-
     await browser.wait(this.until.visibilityOf(this.updatesNavigation), 10000, 'fail to find updates in nav bar');
-    await browser.wait(this.until.presenceOf(this.updatesNavigation));
-    await this.updatesNavigation.click();
-
-    await browser.wait(this.until.presenceOf(this.updatesNavigationFilterButton));
-    await this.updatesNavigationFilterButton.click();
+    await safeClick(this.updatesNavigation);
+    await safeClick(this.updatesNavigationFilterButton);
   }
 }
