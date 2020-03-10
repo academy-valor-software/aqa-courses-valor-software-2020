@@ -45,7 +45,9 @@ xdescribe('Sign up functionality', () => {
 describe('Profile functionality', () => {
   beforeEach(async () => {
     await browser.manage().deleteAllCookies();
-    await browser.waitForAngularEnabled(true);
+    await loginPage.open();
+    await loginPage.login(email, password);
+    expect(await dashboardPage.isUrlOpened()).toBe(true);
   });
 
   afterEach(async () => {
@@ -54,13 +56,7 @@ describe('Profile functionality', () => {
   });
 
   it('should be possible to change skills section', async () => {
-    await loginPage.open();
-    await loginPage.login(email, password);
-
-    expect(await dashboardPage.isUrlOpened()).toBe(true);
-
     await dashboardPage.addSeoAndHtml5Skills();
-
     expect(dashboardPage.getHtml5Text()).toEqual('HTML5');
     expect(dashboardPage.getSeoText()).toEqual('SEO');
   });

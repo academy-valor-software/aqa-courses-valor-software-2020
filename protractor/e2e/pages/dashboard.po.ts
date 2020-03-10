@@ -1,4 +1,4 @@
-import {$, browser, by, element, ElementFinder, protractor} from 'protractor';
+import {$, browser, by, element, protractor} from 'protractor';
 
 import { BaseComponent } from './base.component';
 import {safeClick} from '../helper/utils';
@@ -7,19 +7,19 @@ export class DashboardPo extends BaseComponent {
   readonly url = '/dashboard';
   readonly until = protractor.ExpectedConditions;
 
-  private readonly editProfileButton = element(by.xpath('//button[@class=\'btn btn-large btn-info btn-edit-trigger\']'));
-  private readonly profilePageButton = element(by.xpath('//a[contains(text(),\'Profile Page\')]'));
-  private readonly addSkillButton = element(by.xpath('//a[@id=\'add-skills-btn\']'));
-  private readonly addSkillModal = element(by.xpath('//div[@id=\'select-skill-category-modal\']'));
-  private readonly addSkillInput = element(by.xpath('//input[@placeholder=\'Search for relevant skills\']'));
-  private readonly seoSkillSelector = element(by.css('div[title=\'SEO\']'));
-  private readonly html5SkillSelector = element(by.css('div[title=\'HTML5\']'));
-  private readonly saveSkillButton = element(by.xpath('//button[@id=\'saveSkills\']'));
+// TODO: change to css selectors
+  private readonly profilePageBtn = $('fl-button[fltrackinglabel="ActivateFreelancerProfileButton"]');
+  private readonly editProfileBtn = $('button.btn-edit-trigger:nth-child(1)');
+  private readonly addSkillBtn = $('a.add-skills-btn');
+  private readonly addSkillModal = $('div#select-skill-category-modal');
+  private readonly addSkillInput = $('input.skill-selector-header-input');
+  private readonly seoSkillSelector = $('div[title=\'SEO\']');
+  private readonly html5SkillSelector = $('div[title=\'HTML5\']');
+  private readonly saveSkillBtn = $('button#saveSkills');
   private readonly updatesNavigation = element(by.xpath('//fl-callout[4]//fl-callout-trigger[1]//fl-button[2]//button[1]'));
-  private readonly updatesNavigationFilterButton = element(by.xpath('//fl-bit[@class=\'Heading\']//button[@class=\'ButtonElement\']'));
-  private readonly html5FilteredUpdates = element(by.xpath('//label[contains(text(),\'HTML5\')]'));
-  private readonly seoFilteredUpdates = element(by.xpath('//label[contains(text(),\'SEO\')]'));
-
+  private readonly updatesNavigationFilterBtn = element(by.xpath('//fl-bit[@class=\'Heading\']//button[@class=\'ButtonElement\']'));
+  private readonly html5FilteredUpdates = $('fl-checkbox.List-content:nth-child(1)');
+  private readonly seoFilteredUpdates = $('fl-checkbox.List-content:nth-child(2)');
   private readonly textUserInitials = $('fl-heading.Username-displayName');
   private readonly textUserId = $('fl-heading.Username-userId');
 
@@ -40,9 +40,9 @@ export class DashboardPo extends BaseComponent {
   }
 
   async addSeoAndHtml5Skills(): Promise<void> {
-    await safeClick(this.profilePageButton);
-    await safeClick(this.editProfileButton);
-    await safeClick(this.addSkillButton);
+    await safeClick(this.profilePageBtn);
+    await safeClick(this.editProfileBtn);
+    await safeClick(this.addSkillBtn);
     await safeClick(this.addSkillModal);
     await this.addSkillInput.click();
     await safeClick(this.addSkillInput);
@@ -51,9 +51,9 @@ export class DashboardPo extends BaseComponent {
     await this.addSkillInput.clear();
     await this.addSkillInput.sendKeys('HTML5');
     await safeClick(this.html5SkillSelector);
-    await this.saveSkillButton.click();
+    await this.saveSkillBtn.click();
     await browser.wait(this.until.visibilityOf(this.updatesNavigation), 10000, 'fail to find updates in nav bar');
     await safeClick(this.updatesNavigation);
-    await safeClick(this.updatesNavigationFilterButton);
+    await safeClick(this.updatesNavigationFilterBtn);
   }
 }

@@ -3,21 +3,19 @@ import { LoginPo } from '../pages/login.po';
 import { DashboardPo } from '../pages/dashboard.po';
 import { accountData } from '../data/account-data.mock';
 import {$, browser, by, element, protractor} from 'protractor';
+import { ExpectedConditions as EC } from 'protractor';
 
 describe('Login functionality', () => {
 
     const { email, password, userId, firstName, lastName } = accountData;
     const loginPage = new LoginPo();
     const dashboardPage = new DashboardPo();
-    const EC = protractor.ExpectedConditions;
 
     beforeEach(async () => {
         await browser.manage().deleteAllCookies();
-        await browser.waitForAngularEnabled(true);
     });
 
     afterEach(async () => {
-        await browser.waitForAngularEnabled(true);
         await browser.executeScript('window.sessionStorage.clear();');
         await browser.executeScript('window.localStorage.clear();');
         await browser.manage().deleteAllCookies();
