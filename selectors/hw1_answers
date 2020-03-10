@@ -1,0 +1,26 @@
+1.
+Open Google
+Make any search
+Create selector for the main input on the top of the page
+Answer:
+	.RNNXgb .SDkEP
+
+2.
+Open Google
+Create selector for the button with "Settings" name under the input in the right corner.
+Answer:
+	#abar_button_opt
+
+3. 
+Open ng-book site
+Create selector for blog post "Managing User Permissions in Angular using Akita"
+Answer:
+	header a[href*="permissions-in-angular-using-akita"]
+
+4. 
+Open features page 
+Create selector for "TypeScript" header in the Content section
+Answer:
+	#contents li:nth-child(3)>span:nth-child(1)
+	
+	
