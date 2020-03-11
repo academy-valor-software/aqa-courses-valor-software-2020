@@ -8,4 +8,4 @@
 header a[title*="Managing User Permissions"] or header a[href*="managing-user-permissions"]
 
 - Open features page 2. Create selector for "TypeScript" header in the Content section:
-  ul[class=curriculum-list]>li:nth-child(3) - unseloved
+  ul[class=curriculum-list]>li:nth-child(3) - in-progress
