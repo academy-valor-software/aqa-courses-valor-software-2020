@@ -8,6 +8,10 @@ export function formatUserName(firstName: string, lastName: string): string {
   return `${firstName} ${lastName[0]}.`;
 }
 
+export function getInvalidData (originData: string): string {
+  return this.getRandom() + originData.substring(0, originData.length - 1);
+}
+
 export function concatEducationDetailsString(education: IEducation): string {
   const {endYear, startYear, university, country} = education;
 

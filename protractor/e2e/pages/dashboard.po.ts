@@ -1,4 +1,4 @@
-import { $ } from 'protractor';
+import { $ } from 'protractor/built';
 
 import { BaseComponent } from './base.component';
 

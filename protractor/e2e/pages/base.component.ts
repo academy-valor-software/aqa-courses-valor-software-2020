@@ -1,4 +1,4 @@
-import { browser, ElementFinder, ExpectedConditions as EC } from 'protractor';
+import { browser, ElementFinder, ExpectedConditions as EC } from 'protractor/built';
 
 export class BaseComponent {
   url = '/';
@@ -10,6 +10,10 @@ export class BaseComponent {
   async isUrlOpened(): Promise<boolean> {
       return (await browser.getCurrentUrl()).includes(this.url);
   }
+
+  async checkElementText(element: ElementFinder, messageText: string): Promise<boolean> {
+        return (await element.getText()).includes(messageText);
+    }
 
   async clearAndSetInputValue(element: ElementFinder, value: string): Promise<void> {
       await element.clear();

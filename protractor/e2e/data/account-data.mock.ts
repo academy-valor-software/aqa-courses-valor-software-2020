@@ -2,12 +2,12 @@ import { getRandom } from '../helper/utils';
 import { IAccount } from './account-data.interface';
 
 export const accountData: IAccount = {
-  email: 'testvalorsoftware@gmail.com',
-  password: 'Jlby1@',
+  email: 'oksanakhalilova@gmail.com',
+  password: '1992fkbr',
 
-  firstName: 'Katya',
-  lastName: 'Fedorova',
-  userId: 'testvalorsoftwar',
+  firstName: 'Oksana',
+  lastName: 'Khalilova',
+  userId: 'oksanakhalilova',
 
   professionalHeadline: `QA engineer ${getRandom()}`,
   summary: `Worked as QA more than ${getRandom()} years. My favorite joke about QA is: A QA engineer walks into a ` +

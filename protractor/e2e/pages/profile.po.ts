@@ -1,7 +1,7 @@
-import { $, $$ } from 'protractor';
+import {$, $$, promise} from 'protractor/built';
 
-import { BaseComponent } from './base.component';
-import { IEducation } from '../data/edication-data.interface';
+import {BaseComponent} from './base.component';
+import {IEducation} from '../data/edication-data.interface';
 
 export class ProfilePo extends BaseComponent {
   readonly url = '/u/';
@@ -24,6 +24,17 @@ export class ProfilePo extends BaseComponent {
   private readonly btnSaveEducation = $('app-user-profile-editable-ui-action-row fl-button:nth-of-type(2)');
   private readonly textLastAddedDegree = $$('.Degree h2').get(0);
   private readonly textLastAddedEducDetails = $$('app-user-profile-educations-view .Education-content').get(0);
+
+  // private readonly btnEditProfile = $('.SummaryHeader button');
+  private readonly btnAddSkillsIfEmptyList = $('[fltrackinglabel*="EmptySkills"] .ButtonElement');
+  private readonly btnAddSkilsIfAnyAlredyExists = $('[fltrackinglabel*="TopSkills"] .ButtonElement');
+  private readonly inputSearchSkills = $('.SearchInput input[placeholder="Search skills"]');
+  private readonly checkboxSkills = $('fl-checkbox:nth-child(1) label');
+  private readonly btnSaveSkills = $('[fltrackinglabel*="SaveSkills"] button');
+  private readonly btnUpdates = $('[fltrackinglabel*="Updates"] button');
+  private readonly btnUpdatesFilters = $('[fltrackinglabel*="Updates-Options"] button');
+  private readonly checkboxFiltersFirstSkill = $('fl-checkbox:nth-child(1) label');
+  private readonly checkboxFiltersSecondSkill = $('fl-checkbox:nth-child(2) label');
 
   public async getHeadlineText(): Promise<string> {
     return this.textProfHeadline.getText();
@@ -63,5 +74,31 @@ export class ProfilePo extends BaseComponent {
 
   public async getEducationDetails(): Promise<string> {
     return this.textLastAddedEducDetails.getText();
+  }
+
+  public async addSkillsAndSave(skillsList: []): Promise<void> {
+
+    try {
+      if (this.btnAddSkillsIfEmptyList.isPresent) {
+        await this.btnAddSkillsIfEmptyList.click();
+      } else {
+        await this.btnAddSkilsIfAnyAlredyExists.click();
+      }
+    } catch (err) {
+      console.log('No any AddSkills element has been found');
+    }
+
+    for (let i = 0; i < skillsList.length; i++) {
+      await this.clearAndSetInputValue(this.inputSearchSkills, skillsList[i]);
+      await this.checkboxSkills.click();
+    }
+    await this.btnSaveSkills.click();
+  }
+
+  public async getUpdatesFilters(): Promise<promise.Promise<string>[]> {
+    await this.btnUpdates.click();
+    await this.btnUpdatesFilters.click();
+    return [this.checkboxFiltersFirstSkill.getText(), this.checkboxFiltersSecondSkill.getText()];
+
   }
 }

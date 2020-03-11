@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+import { browser } from 'protractor/built';
 
 import { LoginPo } from '../pages/login.po';
 import { ProfilePo } from '../pages/profile.po';
@@ -7,6 +7,7 @@ import { accountData } from '../data/account-data.mock';
 import { concatEducationDetailsString } from '../helper/utils';
 import { educationData } from '../data/educaction-data.mock';
 
+
 describe('Sign up functionality', () => {
 
   const loginPage = new LoginPo();
@@ -14,6 +15,7 @@ describe('Sign up functionality', () => {
   const profilePage = new ProfilePo();
 
   const { email, password, professionalHeadline, summary, hourRate } = accountData;
+  const skillsArray = ['HTML5', 'SEO'];
 
   beforeAll(async () => {
     await loginPage.open();
@@ -33,12 +35,14 @@ describe('Sign up functionality', () => {
     await expect(await profilePage.getHourRateText()).toContain(hourRate);
   });
 
-  it('should add education item', async () => {
-    await profilePage.addEducationItem(educationData);
-
-    expect(await profilePage.getEducationDegree()).toEqual(educationData.degree);
-    expect(profilePage.getEducationDetails()).toEqual(concatEducationDetailsString(educationData));
+/*
+  it('should add Skills to profile', async () => {
+    await profilePage.addSkillsAndSave(skillsArray);
+    expect(await profilePage.getUpdatesFilters()[0]).toEqual(skillsArray[0]);
+    expect(await profilePage.getUpdatesFilters()[1]).toEqual(skillsArray[1]);
   });
+*/
+
 });
 
 
