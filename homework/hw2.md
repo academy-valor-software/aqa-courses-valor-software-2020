@@ -60,26 +60,6 @@ In this branch - cover test case by e2e test with Protractor.
 
 ----
 
-### :pencil: TestCase #3
-
-**Preconditions:**
-1. Log into the system
-2. Open [Profile page](https://www.freelancer.com/u/{username})
-3. Switch to edit profile mode
-
-**Steps:**
-1. Click on '+Skills' in 'My Top Skills' section
-2. Add SEO, HTML5 skills
-3. Save changes in the form
-4. Click on 'Updates' in navigation
-5. Switch to 'Filters' mode
-
-**Expected result:** added skills on step2,3 are shown in the skills list of updates section.
-
-<img src="/homework/assets/hw2_3.png" alt="HW2.3" width="70%">
-
-----
-
 ## :mailbox_with_mail: Preparing and sending results:
 
 1. Check yourself - run your tests, review your code.

@@ -1,85 +1,49 @@
-# HW#2: Cypress e2e tests
+# HW#3: Protractor e2e tests: part #2
 
 ## :link: Prerequisites
 
-1. You should have already cloned repository.
-2. You should have already created branch `cypress-surname`.
-3. You should have already created config files in this branch from practical lesson.
-4. You should have already committed and pushed all these files to your remote branch. 
-If not, plz do it:
+1. Checkout to `master` branch and pull the latest changes
 ```
-    git add .
-    git commit -m "tests(e2e): add cypress files from practical lections"
-    git push origin cypress-surname
- ``` 
-And check that your changes were committed:
-```
-    git status
-    git log
-    q
- ```
-###### Note: `q` closes log view.
+    git checkout master
+    git pull origin master
+```   
+2. Create new branch from `master`: `protractor2-surname`
 
 ## :books: Tasks:
 
-In this branch - cover test case by e2e test with Cypress.
-###### Note: test cases are exactly the same as you've already done in Protractor HW. Just need to rewrite using Cypress framework. 
+In this branch - cover test case by e2e test with Protractor.
 
-### :pencil: TestCase #1
-
-**Preconditions:**
-1. Open [Login page](https://www.freelancer.com/login)
-
-**Steps:**
-1. Set email with invalid format
-2. Set correct password
-3. Click on "Log In" button
-
-**Expected result:** 
-- url still contains /login route;
-- error message appears and it equals to _'Please enter a valid username or email address.'_
-
-<img src="/homework/assets/hw2_1.png" alt="HW2.1" width="40%">
-
------
-
-### :pencil: TestCase #2
+### :pencil: TestCase
 
 **Preconditions:**
-1. Open [Login page](https://www.freelancer.com/login)
+1. Open [Matrix page](https://www.gapminder.org/dollar-street/matrix)
 
 **Steps:**
-1. Set correct email.
-2. Set incorrect password
-3. Click on "Log In" button
+1. Choose any family
+2. Click on the selected family card
 
-**Expected result:** 
-- url still contains /login route;
-- error message appears and it equals to _'Incorrect username or password provided.'_
+<img src="/homework/assets/hw3_1.png" alt="HW3.1" width="40%">
 
-<img src="/homework/assets/hw2_2.png" alt="HW2.2" width="40%">
+3. Remember the following family values:
+   - name
+   - income
+   - country
+4. Click on 'Visit this home' button
 
-----
+<img src="/homework/assets/hw3_2.png" alt="HW3.2" width="40%">
 
-##### :warning: Error text messages should be made in a fixture for both test cases.
+5. Look at the main description section 
 
-### :pencil: TestCase #3
+<img src="/homework/assets/hw3_3.png" alt="HW3.3" width="40%">
 
-**Preconditions:**
-1. Log into the system
-2. Open [Profile page](https://www.freelancer.com/u/{username})
-3. Switch to edit profile mode
+**Expected result:** name, income and country values should match the values from the previous page.
 
-**Steps:**
-1. Click on '+Skills' in 'My Top Skills' section
-2. Add SEO, HTML5 skills
-3. Save changes in the form
-4. Click on 'Updates' in navigation
-5. Switch to 'Filters' mode
+5. Scroll down
+6. Look at the sticky header
 
-**Expected result:** added skills on step2,3 are shown in the skills list of updates section.
+<img src="/homework/assets/hw3_3.png" alt="HW3.4" width="40%">
 
-<img src="/homework/assets/hw2_3.png" alt="HW2.3" width="70%">
+**Expected result:** all our values, such as name, income, country, should be the same as we have on the previous steps.
 
 ----
 
@@ -96,9 +60,9 @@ In this branch - cover test case by e2e test with Cypress.
 ```
 4. Commit your new tests with new commit:
 ```
-    git add .
-    git commit -m "tests(e2e): add cypress tests - HW3"
-    git push origin `cypress-surname`
+    git add filename1.extension filename2.extension
+    git commit -m "tests(e2e): add protractor tests - HW3"
+    git push origin `protractor2-surname`
 ```
-5. Create Pull Request with your changes from `cypress-surname` to `master` and add _'Ready for review'_ label.
+5. Create Pull Request with your changes from `protractor2-surname` to `master`, add _'Ready for review'_ label, add yourself as Assignees
 6. Post update that you've finish your HW3 in [summarized table](https://docs.google.com/spreadsheets/d/1pIVFmzoo6lkchfcUjxpUFov7u7m09iY_4knNajdR9SU/edit?usp=sharing) and into the [#hw-review-request](https://valorsoftware-qa2020.slack.com/archives/CUC73SVC4) chat.
