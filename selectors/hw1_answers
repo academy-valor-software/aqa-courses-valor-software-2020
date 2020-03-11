@@ -15,12 +15,12 @@ Answer:
 Open ng-book site
 Create selector for blog post "Managing User Permissions in Angular using Akita"
 Answer:
-	header a[href*="permissions-in-angular-using-akita"]
+	header [href*="permissions-in-angular-using-akita"]
 
-4. 
-Open features page 
+4.
+Open features page
 Create selector for "TypeScript" header in the Content section
 Answer:
-	#contents li:nth-child(3)>span:nth-child(1)
+	#contents li:nth-child(3) span:nth-child(1)
 	
 	
