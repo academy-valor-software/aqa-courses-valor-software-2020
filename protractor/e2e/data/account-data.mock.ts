@@ -8,8 +8,6 @@ export const accountData: IAccount = {
   wrongEmail : 'masalitinJ@',
   wrongPassword : 'smdjwdwjdw',
 
-
-
   firstName: 'Evgeniy',
   lastName: 'Masalitin',
   userId: 'GenuineMas',

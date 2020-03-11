@@ -14,22 +14,18 @@ describe('Incorrect login functionality', () => {
         await loginPage.open();
     });
 
-    it ('should check ability to NOT login with INCORRECT password ', async() => {
+    it ('should check ability NOT to  login with INCORRECT password ', async() => {
         await loginPage.login( email, wrongPassword );
 
-        expect(await loginPage.waitForVisible(loginPage.incorrectPasswordMessage));
-        expect(browser.getCurrentUrl()).toContain("/login");
+        expect(browser.getCurrentUrl()).toContain('/login');
+        expect (loginPage.incorrectPasswordMessage.getText()).toContain('Incorrect username or password provided.');
     });
 
-
-
-    it ('should check ability to NOT login with INCORRECT email ', async() => {
+    it ('should check ability NOT to login with INCORRECT email ', async() => {
         await loginPage.login( wrongEmail, password );
 
-
-        expect(await loginPage.waitForVisible(loginPage.incorrectEmailMessage));
-        expect(browser.getCurrentUrl()).toContain("/login");
+        expect(browser.getCurrentUrl()).toContain('/login');
+        expect (loginPage.incorrectEmailMessage.getText()).toContain('Please enter a valid username or email address');
     });
-
 
 });
