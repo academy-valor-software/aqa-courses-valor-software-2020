@@ -5,7 +5,6 @@ export class LoginPo extends BaseComponent {
   readonly url = '/login';
   private readonly iconLogo = $('.fl-logo');
 
-
   private readonly inputUserName = $('#username');
   private readonly inputPassword = $('#password');
   private readonly btnLogin = $('#login_btn');
@@ -17,8 +16,8 @@ export class LoginPo extends BaseComponent {
     await this.clearAndSetInputValue(this.inputUserName, email);
     await this.clearAndSetInputValue(this.inputPassword, password);
     await this.btnLogin.click();
-    await this.waitForVisible(this.iconLogo);
-    await this.iconLogo.click();
+    await this.goHomePage(this.iconLogo);
+
   }
 
   async errMessageCheck(): Promise<boolean> {

@@ -35,6 +35,7 @@ export class ProfilePo extends BaseComponent {
   private readonly btnUpdatesFilters = $('[fltrackinglabel*="Updates-Options"] button');
   private readonly checkboxFiltersFirstSkill = $('fl-checkbox:nth-child(1) label');
   private readonly checkboxFiltersSecondSkill = $('fl-checkbox:nth-child(2) label');
+  private readonly iconLogo = $('.fl-logo');
 
   public async getHeadlineText(): Promise<string> {
     return this.textProfHeadline.getText();
@@ -96,6 +97,8 @@ export class ProfilePo extends BaseComponent {
   }
 
   public async getUpdatesFilters(): Promise<promise.Promise<string>[]> {
+
+    await this.goHomePage(this.iconLogo);
     await this.btnUpdates.click();
     await this.btnUpdatesFilters.click();
     return [this.checkboxFiltersFirstSkill.getText(), this.checkboxFiltersSecondSkill.getText()];

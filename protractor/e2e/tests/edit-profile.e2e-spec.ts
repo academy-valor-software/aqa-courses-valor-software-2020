@@ -35,13 +35,13 @@ describe('Sign up functionality', () => {
     await expect(await profilePage.getHourRateText()).toContain(hourRate);
   });
 
-/*
+
   it('should add Skills to profile', async () => {
-    await profilePage.addSkillsAndSave(skillsArray);
-    expect(await profilePage.getUpdatesFilters()[0]).toEqual(skillsArray[0]);
-    expect(await profilePage.getUpdatesFilters()[1]).toEqual(skillsArray[1]);
+    await profilePage.addSkillsAndSave(this.skillsArray);
+    expect(await profilePage.getUpdatesFilters()[0]).toEqual(this.skillsArray[0]);
+    expect(await profilePage.getUpdatesFilters()[1]).toEqual(this.skillsArray[1]);
   });
-*/
+
 
 });
 

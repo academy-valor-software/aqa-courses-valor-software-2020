@@ -27,4 +27,9 @@ export class BaseComponent {
   async waitForClickable(element: ElementFinder, timeout?: number): Promise<void> {
       await browser.wait(EC.elementToBeClickable(element), timeout);
   }
+
+  async goHomePage(element: ElementFinder, timeout?: number): Promise<void> {
+      await this.waitForVisible(element, timeout);
+      await element.click();
+  }
 }
