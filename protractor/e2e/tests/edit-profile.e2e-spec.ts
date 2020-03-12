@@ -7,7 +7,7 @@ import { accountData } from '../data/account-data.mock';
 import { concatEducationDetailsString } from '../helper/utils';
 import { educationData } from '../data/educaction-data.mock';
 
-describe('Sign up functionality', () => {
+xdescribe('Sign up functionality', () => {
 
   const loginPage = new LoginPo();
   const header = new HeaderPo();
@@ -25,7 +25,7 @@ describe('Sign up functionality', () => {
     await browser.manage().deleteAllCookies();
   });
 
-  it('should edit profile info card', async () => {
+  xit('should edit profile info card', async () => {
     await profilePage.editAndSaveProfileInf(professionalHeadline, summary, hourRate);
 
     await expect(await profilePage.getHeadlineText()).toEqual(professionalHeadline);
@@ -33,7 +33,7 @@ describe('Sign up functionality', () => {
     await expect(await profilePage.getHourRateText()).toContain(hourRate);
   });
 
-  it('should add education item', async () => {
+  xit('should add education item', async () => {
     await profilePage.addEducationItem(educationData);
 
     expect(await profilePage.getEducationDegree()).toEqual(educationData.degree);

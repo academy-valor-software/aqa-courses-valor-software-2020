@@ -24,3 +24,5 @@ export class BaseComponent {
       await browser.wait(EC.elementToBeClickable(element), timeout);
   }
 }
+
+

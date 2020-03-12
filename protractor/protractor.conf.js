@@ -20,7 +20,7 @@ exports.config = {
         }
     },
 
-    specs: ['./e2e/*.e2e-spec.ts'],
+    specs: ['./e2e/**/*.e2e-spec.ts'],
     exclude: [],
 
     framework: 'jasmine',
