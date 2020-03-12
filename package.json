@@ -1,8 +1,13 @@
 {
   "name": "aqa-courses-valor-software-2020",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/academy-valor-software/aqa-courses-valor-software-2020"
+  },
+  "license": "UNLICENSED",
   "scripts": {
-    "pree2e-tests": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "pree2e-tests": "webdriver-manager update",
     "e2e-tests": "protractor protractor/protractor.conf.js",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
