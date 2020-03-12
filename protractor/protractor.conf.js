@@ -5,7 +5,7 @@ const JR = require('protractor-jasmine2-html-reporter');
 const testResultsDir = 'results';
 
 exports.config = {
-    baseUrl: 'https://www.freelancer.com',
+    baseUrl: 'https://www.dollarstreet.org',
     directConnect: true,
 
     capabilities: {
@@ -20,8 +20,8 @@ exports.config = {
         }
     },
 
-    specs: ['./e2e/*.e2e-spec.ts'],
-    exclude: [],
+    specs: ['./e2e/**/*.e2e-spec.ts'],
+    exclude: ['./e2e/tests/edit-profile.e2e-spec.ts', './e2e/tests/login.e2e-spec.ts'],
 
     framework: 'jasmine',
     allScriptsTimeout: 60000,
