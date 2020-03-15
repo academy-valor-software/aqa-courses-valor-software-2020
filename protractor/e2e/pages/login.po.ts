@@ -7,7 +7,7 @@ export class LoginPo extends BaseComponent {
     private readonly inputUserName = $('#username');
     private readonly inputPassword = $('#password');
     private readonly btnLogin = $('#login_btn');
-    private readonly alertErrorMessageText = $('.alert-error [ng-if*=error]');
+    private readonly alertErrorMessageText = $('.alert-error span');
     private readonly fieldErrorMessageText = $('.form-error');
 
     async login(email: string, password: string): Promise<void> {
