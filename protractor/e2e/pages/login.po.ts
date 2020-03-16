@@ -7,6 +7,8 @@ export class LoginPo extends BaseComponent {
   private readonly inputUserName = $('#username');
   private readonly inputPassword = $('#password');
   private readonly btnLogin = $('#login_btn');
+  public readonly incorrectPasswordMessage = $('[class="alert alert-error"]');
+  public readonly incorrectEmailMessage = $('.form-error');
 
   async login(email: string, password: string): Promise<void> {
     await this.waitForClickable(this.inputUserName);
@@ -14,4 +16,5 @@ export class LoginPo extends BaseComponent {
     await this.clearAndSetInputValue(this.inputPassword, password);
     await this.btnLogin.click();
   }
+
 }
