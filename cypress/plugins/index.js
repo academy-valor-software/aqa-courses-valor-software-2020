@@ -41,19 +41,19 @@ module.exports = on => {
         webpackOptions
     };
     on('file:preprocessor', wp(options));
-    on('before:browser:launch', (browser = {}, args) => {
-        if (browser.name === 'chrome') {
-            args.push('--cast-initial-screen-width=1600');
-            args.push('--cast-initial-screen-height=900');
+    on('before:browser:launch', (browser = {}, launchOptions) => {
+        if (browser.name === 'chromium') {
+            launchOptions.args.push('--cast-initial-screen-width=1920');
+            launchOptions.args.push('--cast-initial-screen-height=1080');
 
-            return args;
+            return launchOptions;
         }
 
         if (browser.name === 'electron') {
-            args.push('--width=1920');
-            args.push('--height=1080');
+            launchOptions.preferences.width = 1920;
+            launchOptions.preferences.height = 1080;
 
-            return args;
+            return launchOptions.args;
         }
     });
 };
