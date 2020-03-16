@@ -3,6 +3,7 @@ import { StreetComponentPo, Toggle } from '../../pages/ds/street-component.po';
 import {browser, ElementArrayFinder, ElementFinder} from 'protractor';
 import { FamilyPo } from '../../pages/ds/family-component.po';
 import {getRandom} from '../../helper/utils';
+import {HousePo} from '../../pages/ds/house-component.po';
 
 describe('Street component',  () => {
     const matrixPage = new MatrixPo();
@@ -28,12 +29,15 @@ describe('Street component',  () => {
 
 describe('Check selected family data', () => {
     const matrixPo = new MatrixPo();
-    it('should choose random family and click on it', async () => {
+    const housePo = new HousePo();
+    it('should choose random family visit home and compare data', async () => {
         await matrixPo.open();
         const allVisibleFamilies = await matrixPo.allFamilies;
-        const randomInd = getRandom(allVisibleFamilies.length);
-        const randomFamily = new FamilyPo(randomInd).family;
-        await randomFamily.click();
-        await browser.sleep(2000);
+        const randomInd = getRandom(allVisibleFamilies.length - 1);
+        const randomFamily = new FamilyPo(randomInd);
+        await randomFamily.familyElement.click();
+        const data = await randomFamily.getFamilyData();
+        await housePo.open();
+
     });
 });
