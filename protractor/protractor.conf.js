@@ -13,14 +13,14 @@ exports.config = {
         shardTestFiles: true,
         maxInstances: 1,
         chromeOptions: {
-            args: [ '--window-size=1920x1080'], // 'headless',
+            args: [ '--window-size=1920x1080', '--headless'],
             prefs: {
                 'profile.managed_default_content_settings.notifications': 1
             }
         }
     },
 
-    specs: ['./e2e/**/*.e2e-spec.ts'],
+    specs: ['./e2e/tests/ds/families-page.e2e-spec.ts'],
     exclude: ['./e2e/tests/edit-profile.e2e-spec.ts', './e2e/tests/login.e2e-spec.ts'],
 
     framework: 'jasmine',
@@ -46,8 +46,7 @@ exports.config = {
 
         browser.driver
             .manage()
-            .window()
-            .maximize();
+            .window();
 
         let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 

@@ -1,7 +1,7 @@
 import { IEducation } from '../data/edication-data.interface';
 
-export function getRandom(): number {
-  return Math.floor(Math.random() * 1000);
+export function getRandom(index: number): number {
+  return Math.floor(Math.random() * index) + 1;
 }
 
 export function formatUserName(firstName: string, lastName: string): string {
@@ -15,4 +15,8 @@ export function concatEducationDetailsString(education: IEducation): string {
   return `${university}, ${country}\n` +
          `${startYear} - ${endYear}\n` +
          `(${educationDuration} years)`;
+}
+
+export function getNumbers(stringValue: string): string {
+  return stringValue.replace(/\D/g, '');
 }

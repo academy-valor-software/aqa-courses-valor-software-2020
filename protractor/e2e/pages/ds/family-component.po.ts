@@ -1,8 +1,10 @@
 import { ElementFinder, $$ } from 'protractor';
+import { getNumbers } from '../../helper/utils';
 
-export class FamilyPo {
+export class FamilyComponentPo {
     private readonly locator = '.image-content';
     private readonly incomeLocator = '.place-image-box-income';
+    private readonly countryLocator = '.place-image-box-country';
     private readonly root: ElementFinder;
 
     constructor(index: number) {
@@ -13,8 +15,16 @@ export class FamilyPo {
         return this.root.$(this.incomeLocator);
     }
 
-    async getIncomeValue(): Promise<number> {
-        return await this.income.getText()
-            .then(value => Number(value.replace(/\D/g, '')));
+    get country(): ElementFinder {
+        return this.root.$(this.countryLocator);
     }
+
+    async getIncomeValue(): Promise<number> {
+        return Number(getNumbers(await this.income.getText()));
+    }
+
+    async getCountryValue(): Promise<string> {
+        return await this.country.getText()
+            .then(value => value.trim());
+        }
 }

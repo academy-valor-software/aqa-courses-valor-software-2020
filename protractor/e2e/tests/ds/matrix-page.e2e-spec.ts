@@ -1,7 +1,7 @@
 import { MatrixPo } from '../../pages/ds/matrix.po';
 import { StreetComponentPo, Toggle } from '../../pages/ds/street-component.po';
 import { ElementArrayFinder, ElementFinder } from 'protractor';
-import { FamilyPo } from '../../pages/ds/family-component.po';
+import { FamilyComponentPo } from '../../pages/ds/family-component.po';
 
 describe('Street component',  () => {
     const matrixPage = new MatrixPo();
@@ -15,7 +15,7 @@ describe('Street component',  () => {
         const arrOfAllFamilies: ElementArrayFinder = matrixPage.allFamilies;
 
         const arrOfFamiliesIncomeValues =
-            await arrOfAllFamilies.map((family: ElementFinder, index: number) => new FamilyPo(index).getIncomeValue());
+            await arrOfAllFamilies.map((family: ElementFinder, index: number) => new FamilyComponentPo(index).getIncomeValue());
 
         const arrOfIncorrectIncomeValues =
             arrOfFamiliesIncomeValues.filter(value => (value <= maxValue || value <= minValue));
