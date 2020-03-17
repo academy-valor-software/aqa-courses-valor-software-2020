@@ -1,5 +1,5 @@
-import {ElementFinder, $$, $, browser, ExpectedConditions as EC} from 'protractor';
-import {strict} from 'assert';
+import {ElementFinder, $$, $} from 'protractor';
+import {IFamily} from '../../data/ds/family-data.interface';
 
 export class FamilyPo {
     private readonly locator = '.image-content';
@@ -27,25 +27,28 @@ export class FamilyPo {
     }
 
     async getCountry(): Promise<string> {
-        return this.country.getText();
+        return this.country.getText().then(text => text.replace(/\s/g, ''));
     }
 
     async getFamilyName(): Promise<string> {
         return await this.family.getText().then(name => {
             const endInd = name.indexOf('family');
-            return name.substring(0, endInd).trim();
+            return name.substring(0, endInd).replace(/\s/g, '');
         });
     }
 
-    async getIncomeValue(): Promise<number> {
+    async getIncomeValue(): Promise<string> {
         return await this.income.getText()
-            .then(value => Number(value.replace(/\D/g, '')));
+            .then(value => value.replace(/\D/g, ''));
     }
-    async getFamilyData(): Promise<object> {
+    async getFamilyData(): Promise<IFamily> {
         return {
            country: await this.getCountry(),
            name: await this.getFamilyName(),
            income: await this.getIncomeValue(),
         };
+    }
+    async clickVisitHome(): Promise<void> {
+        await this.visitHomeButton.click();
     }
 }
