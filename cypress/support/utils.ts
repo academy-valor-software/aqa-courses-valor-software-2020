@@ -9,3 +9,7 @@ export function getSubstringByRegex(text: string, regex: string): string {
     }
     return 'Nothing found';
 }
+
+export function getRandomString(): string {
+    return Math.random().toString(36).slice(-10);
+}
