@@ -1,10 +1,11 @@
 {
-  "baseUrl": "https://google.com",
+  "baseUrl": "https://www.freelancer.com",
   "chromeWebSecurity": false,
   "video": false,
   "viewportWidth": 1920,
   "viewportHeight": 1080,
   "pageLoadTimeout": 100000,
+  "defaultCommandTimeout": 10000,
   "projectId": "c2sd1i",
-  "testFiles": "**/*spec.ts"
+  "testFiles": "**/freelancer/*spec.ts"
 }
