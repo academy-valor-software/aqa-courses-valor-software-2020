@@ -1,4 +1,6 @@
 {
   "email": "neberaanton@gmail.com",
-  "password": "ubbb2zeca"
+  "password": "ubbb2zeca",
+  "wrongEmailAlert": "Please enter a valid username or email address.",
+  "wrongPassAlert": "Incorrect username or password provided."
 }

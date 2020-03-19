@@ -11,5 +11,5 @@ export function getSubstringByRegex(text: string, regex: string): string {
 }
 
 export function getRandomString(): string {
-    return Math.random().toString(36).slice(-10);
+    return Math.random().toString(36).slice(-10) + '@';
 }
