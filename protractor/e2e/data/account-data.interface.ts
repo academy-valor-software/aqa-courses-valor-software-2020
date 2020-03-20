@@ -1,3 +1,4 @@
+
 export interface IAccount {
   email: string;
   password: string;
@@ -9,4 +10,9 @@ export interface IAccount {
   professionalHeadline: string;
   summary: string;
   hourRate: string;
+}
+
+export interface LoginData {
+  email: string;
+  password: string;
 }

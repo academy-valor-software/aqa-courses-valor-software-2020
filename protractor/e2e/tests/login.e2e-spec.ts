@@ -2,19 +2,21 @@
 import { formatUserName } from '../helper/utils';
 import { LoginPo } from '../pages/login.po';
 import { DashboardPo } from '../pages/dashboard.po';
-import { accountData } from '../data/account-data.mock';
+import {accountData, invalidLoginEmail, invalidLoginPassword} from '../data/account-data.mock';
+import {emailErrorMesText, passwordErrorMsgText} from '../data/error-message-data.mock';
 
 
 describe('Login functionality', () => {
 
-  const {email, password, userId, firstName, lastName} = accountData;
-
   const loginPage = new LoginPo();
   const dashboardPage = new DashboardPo();
 
-
-    it('should check ability to login with CORRECT password and email', async () => {
+    beforeEach(async () => {
       await loginPage.open();
+    });
+
+    xit('should check ability to login with CORRECT password and email', async () => {
+      const {email, password, userId, firstName, lastName} = accountData;
       await loginPage.login(email, password);
 
       expect(await dashboardPage.isUrlOpened()).toBe(true);
@@ -23,25 +25,19 @@ describe('Login functionality', () => {
     });
 
     it('should check invalid email format validation', async () => {
-      const invalidEmail = 'pionier.adler@';
-      const errorMessageText = 'Please enter a valid username or email address.';
+      const {email, password} = invalidLoginEmail;
 
-      await loginPage.open();
-      await loginPage.loginWithInvalidEmail(invalidEmail, password);
-      await loginPage.getFormErrorMessage();
+      await loginPage.loginWithInvalidEmail(email, password);
 
-      expect(await loginPage.getFormErrorMessage()).toEqual(errorMessageText);
+      expect(await loginPage.getFormErrorMessage()).toEqual(emailErrorMesText);
       expect(await loginPage.isUrlOpened()).toBe(true);
     });
   it('should check incorrect password validation', async () => {
-    const invalidPassword = 'abc123';
-    const errorMessageText = 'Incorrect username or password provided.';
+    const {email, password} = invalidLoginPassword;
 
-    await loginPage.open();
-    await loginPage.loginWithInvalidPassword(email, invalidPassword);
-    await loginPage.getErrorMessageText();
+    await loginPage.loginWithInvalidPassword(email, password);
 
-    expect(await loginPage.getErrorMessageText()).toEqual(errorMessageText);
+    expect(await loginPage.getErrorMessageText()).toEqual(passwordErrorMsgText);
     expect(await loginPage.isUrlOpened()).toBe(true);
   });
 });
