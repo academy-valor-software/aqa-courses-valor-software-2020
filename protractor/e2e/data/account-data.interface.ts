@@ -12,7 +12,7 @@ export interface IAccount {
   hourRate: string;
 }
 
-export interface LoginData {
-  email: string;
-  password: string;
+export interface InvalidLoginData {
+  invalidEmail: string;
+  invalidPassword: string;
 }
