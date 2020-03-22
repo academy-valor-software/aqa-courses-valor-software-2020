@@ -11,11 +11,11 @@ export class FamilyHomePo extends FamilyInfoPo {
     private readonly incomeSticky = $('.short-family-info-container .right-title .title');
 
     async getFamilyInformation(): Promise<IFamily> {
-        const nameFullValue = await this.name.getText().then(value => value.trim());
+        const nameFullValue = (await this.name.getText()).trim();
         const nameValue = nameFullValue.substring(0, nameFullValue.indexOf(' '));
         const income = getDigitsOnlyFromString(await this.income.getText());
         const country = await this.country.getText();
-        console.log(`Name: ${nameValue}, income: $${income}, country: ${country}`);
+
         return {name: nameValue, income: income, country: country};
     }
 

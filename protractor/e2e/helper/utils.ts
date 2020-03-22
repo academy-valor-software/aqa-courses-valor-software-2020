@@ -10,8 +10,8 @@ export function formatUserName(firstName: string, lastName: string): string {
 
 export function concatEducationDetailsString(education: IEducation): string {
     const {endYear, startYear, university, country} = education;
-
     const educationDuration = +endYear - +startYear;
+
     return `${university}, ${country}\n` +
         `${startYear} - ${endYear}\n` +
         `(${educationDuration} years)`;

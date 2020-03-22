@@ -1,4 +1,4 @@
-import {$$, ElementFinder} from 'protractor';
+import {$$} from 'protractor';
 import {BaseComponent} from '../base.component';
 
 export class MatrixPo extends BaseComponent {
@@ -6,8 +6,6 @@ export class MatrixPo extends BaseComponent {
     readonly allFamilies = $$('.image-content');
 
     async clickOnRandomFamily(): Promise<void> {
-        const displayedFamilies = await this.allFamilies;
-        const randomFamily: ElementFinder = await displayedFamilies[Math.floor(Math.random() * displayedFamilies.length)];
-        await randomFamily.click();
+        await this.allFamilies.get(Math.floor(Math.random() * await this.allFamilies.count())).click();
     }
 }
