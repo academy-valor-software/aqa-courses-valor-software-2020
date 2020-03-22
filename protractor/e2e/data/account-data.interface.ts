@@ -1,12 +1,8 @@
 export interface IAccount {
   email: string;
   password: string;
+  incorrectEmail: string;
+  incorrectPassword: string;
 
-  firstName: string;
-  lastName: string;
-  userId: string;
 
-  professionalHeadline: string;
-  summary: string;
-  hourRate: string;
 }

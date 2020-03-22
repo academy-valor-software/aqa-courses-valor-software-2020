@@ -23,4 +23,8 @@ export class BaseComponent {
   async waitForClickable(element: ElementFinder, timeout?: number): Promise<void> {
       await browser.wait(EC.elementToBeClickable(element), timeout);
   }
+
+  async getElementText(element: ElementFinder ): Promise<string> {
+        return element.getText();
+    }
 }
