@@ -15,7 +15,7 @@ export class FamilyHomePO extends FamilyInformationPO {
         const nameValue = nameFullValue.substring(0, nameFullValue.indexOf(' '));
         const income = getNumbers(await this.income.getText());
         const country = await this.country.getText();
-        console.log(`Name: ${nameValue}, income: $${income}, country: ${country}`);
+
         return {name: nameValue, income: income, country: country};
     }
 
