@@ -1,0 +1,43 @@
+sudo: required
+language: node_js
+node_js: "10"
+
+notifications:
+  email: false
+
+services:
+  - xvfb
+
+addons:
+  chrome: stable
+  apt:
+    packages:
+      - libgconf-2-4
+
+cache:
+  npm: true
+  directories:
+    - ~/.npm
+    - ~/.cache
+    - node_modules
+
+install:
+  - CYPRESS_INSTALL_BINARY=0 npm ci
+
+stages:
+  - Install dependencies
+  - Run tests
+
+jobs:
+  include:
+    - stage: Install dependencies
+      name: Install dependencies
+      if: branch IN (travis-ci, master) AND type = push
+
+    - stage: Run tests
+      name: Run Cypress tests
+      if: branch = travis-ci
+      install:
+        - npm ci
+      script:
+        - npm run cy:run
