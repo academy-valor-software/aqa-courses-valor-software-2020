@@ -8,7 +8,7 @@ export class BaseComponent {
     }
 
     isUrlOpened() {
-        cy.url().should('contain', this.url);
+        return cy.url().should('contain', this.url);
     }
 
     clearAndSetInputValue(inputSelector: string, value: string) {

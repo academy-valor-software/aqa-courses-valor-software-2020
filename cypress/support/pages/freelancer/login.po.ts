@@ -5,6 +5,9 @@ import {BaseComponent} from './base.component';
 export class LoginPo extends BaseComponent {
     readonly url = '/login?w=f&ngsw-bypass=';
 
+    readonly enterValidUsernameOrEmail = 'Please enter a valid username or email address.';
+    readonly invalidUsernameOrPassword = 'Incorrect username or password provided.';
+
     private readonly inputUserName = '#username';
     private readonly inputPassword = '#password';
     private readonly btnLogin = '#login_btn';

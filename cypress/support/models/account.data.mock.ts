@@ -1,6 +1,6 @@
 import {IAccount} from './account.model';
 
-export const accountWrongPassword: IAccount = {
+export const accountData: IAccount = {
     username: 'ruzaliia.yakunina@gmail.com',
-    password: 'some.pass',
+    password: 'ruyak1995',
 };
