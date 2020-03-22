@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+import {getRandom} from '../utils';
+
 export class MatrixPage {
     private readonly url = '/matrix';
     private readonly loader = 'loader';
@@ -18,8 +20,19 @@ export class MatrixPage {
             method: 'GET',
             url: '**/v1/things?**'
         }).as('getThingsRoute');
-        cy.visit(this.url, {timeout: 10000})
+        cy.visit(this.url, {timeout: 30000})
             .get(this.loader).should('have.attr', 'hidden').wait('@getThingsRoute');
+    }
+
+    clickOnRandomFamily() {
+        cy.server();
+        cy.route({
+            method: 'GET',
+            url: '**/v1/matrix-view-block/?**'
+        }).as('getViewBlock');
+        cy.get(this.imageFamily).then(images => {
+            images[getRandom(images.length - 1)].click();
+        }).wait('@getViewBlock');
     }
 
     getFamiliesIncomes() {
