@@ -23,9 +23,11 @@ Cypress.Cookies.defaults({
 
 const {email, password} = accountData;
 
+/*
 before('login', function () {
     cy.loginByApi(email, password);
 });
+ */
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
