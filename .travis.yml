@@ -30,9 +30,9 @@ stages:
 
 jobs:
   include:
-    - stage: Install dependencies
-      name: Install dependencies
-      if: branch IN (travis-ci, master) AND type = push
+#    - stage: Install dependencies
+#      name: Install dependencies
+#      if: branch IN (travis-ci, master) AND type = push
 
     - stage: Run tests
       name: Run Cypress tests
@@ -43,9 +43,8 @@ jobs:
         - npm run cy:run
 
     - stage: Run tests
-        name: Run Protractor tests
-        if: branch = travis-ci
-        install:
-          - npm ci
-        script:
-          - npm run e2e-tests
+      name: Protractor
+      if: branch = travis-ci
+      install: true
+      script:
+        - npm run e2e-tests
