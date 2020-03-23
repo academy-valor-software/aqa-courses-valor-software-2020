@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+import Chainable = Cypress.Chainable;
+
+export {};
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      compare(source: object, target: string): Chainable;
+    }
+  }
+}
+
+Cypress.Commands.add('compare', (source, target) => {
+  const {name, income, country} = source;
+
+  return cy.wrap(name).should('be.eq', target.name) &&
+  cy.wrap(income).should('be.eq', target.income) &&
+  cy.wrap(country).should('be.eq', target.country);
+});
