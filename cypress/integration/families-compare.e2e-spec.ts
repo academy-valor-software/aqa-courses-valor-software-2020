@@ -16,20 +16,16 @@ describe('families parameters persistent for all pages', function () {
     it('family should have same income, country and name in matrix, preview and homepage', function () {
         matrix.clickOnRandomFamily();
         preview.getFamilyInfo();
-        preview.getFamilyInfo().then(viewInfo => {
-            preview.clickVisitHome();
+        preview.getFamilyInfo().then(viewInfo => {preview.clickVisitHome();
 
-            home.getFamilyInfo().then(familyInfo => {
-                cy.wrap(viewInfo.name).should('eq', familyInfo.name);
-                cy.wrap(viewInfo.income).should('eq', familyInfo.income);
-                cy.wrap(viewInfo.country).should('eq', familyInfo.country);
+        home.getFamilyInfo().then(familyInfo => {
+                cy.wrap(viewInfo).should('deep.equal', familyInfo);
             });
 
-            home.getInfoInSticky(200).then(familyStickyHeaderInfo => {
-                cy.wrap(viewInfo.name).should('eq', familyStickyHeaderInfo.name);
-                cy.wrap(viewInfo.income).should('eq', familyStickyHeaderInfo.income);
-                cy.wrap(viewInfo.country).should('eq', familyStickyHeaderInfo.country);
+        home.getInfoInSticky(200).then(familyStickyHeaderInfo => {
+                cy.wrap(viewInfo).should('deep.equal', familyStickyHeaderInfo);
             });
+
         });
     });
 });
