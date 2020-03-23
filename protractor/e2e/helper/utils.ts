@@ -1,8 +1,7 @@
 import { IEducation } from '../data/edication-data.interface';
 
-export function getRandom(maxValue: number = null): number {
-  const range = maxValue !== null ? maxValue + 1 : 1000;
-  return Math.floor(Math.random() * range);
+export function getRandom(): number {
+  return Math.floor(Math.random() * 1000);
 }
 
 export function formatUserName(firstName: string, lastName: string): string {
