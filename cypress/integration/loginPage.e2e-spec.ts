@@ -1,28 +1,28 @@
 import {LoginPagePo} from '../support/pages/login-page.po';
-import {invalidLoginEmail, invalidLoginPassword} from '../fixtures/login-data.mock';
+import {emailErrorMsg, invalidLoginEmail, invalidLoginPassword, passwordErrorMsg} from '../fixtures/login-data.mock';
 
-describe('Login functionality', () => {
+describe('Login functionality', function() {
     const loginPage = new LoginPagePo();
 
-    beforeEach(() => {
+    beforeEach(function() {
         loginPage.openLoginPage();
     });
-    it('should check incorrect email format validation', () => {
-        const {username, password} = invalidLoginEmail;
-        const emailErrorMsg = 'Please enter a valid username or email address.';
 
-        loginPage.loginWithInvalidEmail(username, password);
+    it('should check incorrect email format validation', function() {
+        const {username, password} = invalidLoginEmail;
+
+        loginPage.login(username, password);
 
         loginPage.getEmailErrorMsg().should('contain', emailErrorMsg);
-        cy.url().should('contain', '/login');
+        cy.url().should('contain', loginPage.url);
     });
-    it('should check incorrect password validation', () => {
-       const {username, password} = invalidLoginPassword;
-       const passwordErrorMsg = 'Incorrect username or password provided.';
 
-       loginPage.loginWithInvalidPassword(username, password);
+    it('should check incorrect password validation', function() {
+       const {username, password} = invalidLoginPassword;
+
+       loginPage.login(username, password);
 
        loginPage.getPasswordErrorMsg().should('contain', passwordErrorMsg);
-        cy.url().should('contain', '/login');
+        cy.url().should('contain', loginPage.url);
     });
 });

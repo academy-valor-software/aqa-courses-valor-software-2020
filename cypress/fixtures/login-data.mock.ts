@@ -10,3 +10,6 @@ export const invalidLoginPassword: LoginDataInterface = {
     password: 'abc_123'
 };
 
+export const passwordErrorMsg = 'Incorrect username or password provided.';
+
+export const emailErrorMsg = 'Please enter a valid username or email address.';
