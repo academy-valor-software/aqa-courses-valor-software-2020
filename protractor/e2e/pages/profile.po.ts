@@ -1,7 +1,7 @@
 import { $, $$ } from 'protractor';
 
 import { BaseComponent } from './base.component';
-import { IEducation } from '../data/edication-data.interface';
+import { IEducation } from '../data/education-data.interface';
 
 export class ProfilePo extends BaseComponent {
   readonly url = '/u/';
