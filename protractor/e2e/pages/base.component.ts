@@ -23,4 +23,10 @@ export class BaseComponent {
   async waitForClickable(element: ElementFinder, timeout?: number): Promise<void> {
       await browser.wait(EC.elementToBeClickable(element), timeout);
   }
+  async alertIsShown(alertBox: ElementFinder): Promise<boolean> {
+      return (await alertBox.isDisplayed());
+  }
+  async checkAlertText(alertBox: ElementFinder, text: string): Promise<string> {
+      return (await alertBox.getText());
+  }
 }

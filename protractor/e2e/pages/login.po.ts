@@ -1,4 +1,4 @@
-import { $ } from 'protractor';
+import {$, ElementFinder} from 'protractor';
 import { BaseComponent } from './base.component';
 
 export class LoginPo extends BaseComponent {
@@ -7,6 +7,7 @@ export class LoginPo extends BaseComponent {
   private readonly inputUserName = $('#username');
   private readonly inputPassword = $('#password');
   private readonly btnLogin = $('#login_btn');
+  public readonly alertBox = $('aside');
 
   async login(email: string, password: string): Promise<void> {
     await this.waitForClickable(this.inputUserName);
