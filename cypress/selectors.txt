@@ -1,0 +1,11 @@
+1. Google search:
+.gLFyf
+
+2. Google settings btn:
+#abar_button_opt
+
+3. ng-book site:
+h2 a[href*="managing-user-permissions-in-angular"]
+
+4. Features page:
+#contents li:nth-child(3) span
