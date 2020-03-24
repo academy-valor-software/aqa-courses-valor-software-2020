@@ -10,7 +10,10 @@ export class MatrixPage {
     private readonly loaderOfImg = '.loader-content';
     private readonly spanIncome = '.place-image-box-income';
     private readonly defaultAmountPerRow = 4;
-
+    private readonly nameFamily = '.description-title h3 > span:first-child';
+    private readonly countryFamily = '.description-title h3 > span:last-child';
+    private readonly incomeFamily = '.house-info-content .header-container';
+    private readonly btnVisit = '.description-actions .description-button[data-e2e ="visit-this-home"]';
 
     openPage() {
         cy.server();
@@ -18,7 +21,7 @@ export class MatrixPage {
             method: 'GET',
             url: '**/v1/things?**'
         }).as('getThingsRoute');
-        cy.visit(this.url, {timeout: 10000})
+        cy.visit(this.url, {timeout: 30000})
             .get(this.loader).should('have.attr', 'hidden').wait('@getThingsRoute');
     }
 
@@ -64,5 +67,24 @@ export class MatrixPage {
 
     private clickBtnZoom(selector: string, scale: number) {
         cy.get(selector).click().location('search').should('eq', `?zoom=${scale}`);
+    }
+
+    clickONFamily(index: number) {
+        cy.get(this.imageFamily).eq(index).click();
+    }
+
+    getInfoFamily() {
+        const family = {name: '', income: '', country: ''};
+        cy.get(this.nameFamily).should('be.visible')
+            .then(el => family.name = el.text().replace(' family,', '').trim());
+        cy.get(this.incomeFamily).should('be.visible')
+            .then(el => family.income = el.text().replace('$ ', '').replace('/month', '').trim());
+        cy.get(this.countryFamily).should('be.visible')
+            .then(el => family.country = el.text().trim());
+        return cy.wrap(family).as('family');
+    }
+
+    goVisit() {
+        cy.get(this.btnVisit).should('be.visible').click();
     }
 }
