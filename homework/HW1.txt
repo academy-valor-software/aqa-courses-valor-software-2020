@@ -1,0 +1,4 @@
+1. input.gLFyf
+2. a#abar_button_opt
+3. h2 a[href*=user]
+4. .curriculum-list li:nth-child(3) span:first-child
