@@ -25,16 +25,12 @@ describe('Matrix functionality', function () {
         familyViewPage.getFamilyInformation().then(viewFamilyInfo => {
             familyViewPage.clickVisitHome();
             familyHomePage.getFamilyInformation().then(familyHomeInfo => {
-                cy.wrap(viewFamilyInfo.name).should('eq', familyHomeInfo.name);
-                cy.wrap(viewFamilyInfo.income).should('eq', familyHomeInfo.income);
-                cy.wrap(viewFamilyInfo.country).should('eq', familyHomeInfo.country);
+                cy.wrap(viewFamilyInfo).should('deep.equal', familyHomeInfo);
             });
 
             familyHomePage.scrollDown(200);
             familyHomePage.getFamilyInformationAfterScroll().then(familyStickyHeaderInfo => {
-                cy.wrap(viewFamilyInfo.name).should('eq', familyStickyHeaderInfo.name);
-                cy.wrap(viewFamilyInfo.income).should('eq', familyStickyHeaderInfo.income);
-                cy.wrap(viewFamilyInfo.country).should('eq', familyStickyHeaderInfo.country);
+                cy.wrap(viewFamilyInfo).should('deep.equal', familyStickyHeaderInfo);
             });
         });
     });

@@ -6,7 +6,7 @@ export class FamilyInfoPage {
 
     getFamilyInformation(nameAndCountry: string, income: string) {
         const family: IFamily = {name: '', income: '', country: ''};
-        cy.get(nameAndCountry)
+        cy.get(nameAndCountry).should('be.visible')
             .then(nameAndCountryElement => nameAndCountryElement.text().trim())
             .then(nameAndCountryText => {
                 family.name = nameAndCountryText.substring(0, nameAndCountryText.indexOf(' '))
