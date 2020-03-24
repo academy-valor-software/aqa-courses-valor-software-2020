@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Check login via api', () => {
+xdescribe('Check login via api', () => {
     it('should be logged in', () => {
         cy.visit('');
 
