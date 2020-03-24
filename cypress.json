@@ -6,5 +6,5 @@
   "viewportHeight": 1080,
   "pageLoadTimeout": 100000,
   "projectId": "c2sd1i",
-  "testFiles": "**/*spec.ts"
+  "testFiles": "**/matrix.e2e-spec.ts"
 }
