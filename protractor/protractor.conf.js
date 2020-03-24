@@ -11,9 +11,9 @@ exports.config = {
     capabilities: {
         browserName: 'chrome',
         shardTestFiles: true,
-        maxInstances: 1,
+        maxInstances: 2,
         chromeOptions: {
-            args: [ '--window-size=1920x1080'], // 'headless',
+            args: [ '--window-size=1920x1080', '--headless'],
             prefs: {
                 'profile.managed_default_content_settings.notifications': 1
             }

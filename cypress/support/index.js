@@ -17,15 +17,17 @@
 import './commands'
 import {accountData} from '../../protractor/e2e/data/account-data.mock';
 
+/*
 Cypress.Cookies.defaults({
     whitelist: ['GETAFREE_AUTH_HASH_V2', 'GETAFREE_USER_ID']
 });
 
 const {email, password} = accountData;
 
-// before('login', function () {
-//     cy.loginByApi(email, password);
-// });
+before('login', function () {
+    cy.loginByApi(email, password);
+});
+*/
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
