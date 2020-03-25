@@ -14,6 +14,7 @@ export class FamilyViewPo {
         cy.get(this.familyNameTitle).then($el => familyInfo.name = $el.text().replace('family', '').trim())
             .get(this.familyCountryTitle).then($el => familyInfo.country = $el.text().trim())
             .get(this.familyIncomeTitle).then($el => familyInfo.income = $el.text().replace('/month', '').replace('$', '').trim());
+
         return cy.wrap(familyInfo);
     }
 
@@ -28,6 +29,7 @@ export class FamilyViewPo {
             .get(this.familyNameAndCountryHeader).then($el => familyInfo.country = $el.text()
             .replace(`${familyInfo.name}`, '').replace('family', '').replace(',', '').trim())
             .get(this.familyIncomeHeader).then($el => familyInfo.income = $el.text().replace('/month', '').replace('$', '').trim());
+
              return cy.wrap(familyInfo);
     }
 }
