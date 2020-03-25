@@ -1,4 +1,5 @@
 import { ElementFinder, $$ } from 'protractor';
+import {getDigitsOnlyFromString} from '../../helper/utils';
 
 export class FamilyPo {
     private readonly locator = '.image-content';
@@ -14,7 +15,6 @@ export class FamilyPo {
     }
 
     async getIncomeValue(): Promise<number> {
-        return await this.income.getText()
-            .then(value => Number(value.replace(/\D/g, '')));
+        return Number(getDigitsOnlyFromString(await this.income.getText()));
     }
 }
