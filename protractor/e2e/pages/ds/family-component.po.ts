@@ -17,7 +17,8 @@ export class FamilyPo {
         return await this.income.getText()
             .then(value => Number(value.replace(/\D/g, '')));
     }
-    async getFamily(): Promise<void> {
+
+    async clickOnFamily(): Promise<void> {
         return this.root.click();
     }
 }

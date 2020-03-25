@@ -36,35 +36,23 @@ describe('Street component',  () => {
     });
 
     it('should verify family data', async () => {
-        await familyComponent.getFamily();
+        await familyComponent.clickOnFamily();
 
         const familyData =
             await matrixPage.getFamilyData();
 
-        await matrixPage.getVisitHomeBtn().click();
+        await matrixPage.getVisitHomeBtn();
 
-        const titleFamilyName =
-            await familyDetails.getFamilyNameFromTitle();
-        const titleFamilyIncome =
-            await familyDetails.getFamilyIncomeFromTitle();
-        const titleFamilyCountry =
-            await familyDetails.getFamilyCountryFromTitle();
+        const familyTitleData =
+            await familyDetails.getFamilyTitleData();
 
-        expect(titleFamilyName).toEqual(familyData.familyName);
-        expect(titleFamilyIncome).toEqual(familyData.familyIncome);
-        expect(titleFamilyCountry).toEqual(familyData.familyCountry);
+        expect(familyTitleData).toEqual(familyData);
 
-        browser.executeScript('window.scrollTo(0,document.body.scrollHeight)');
+        familyDetails.scroll();
 
-        const headerFamilyName =
-            await familyHeader.getHeaderFamilyName();
-        const headerFamilyCountry =
-            await familyHeader.getHeaderFamilyCountry();
-        const headerFamilyIncome =
-            await familyHeader.getHeaderFamilyIncome();
+        const familyHeaderData =
+            await familyHeader.getFamilyHeaderData();
 
-        expect(headerFamilyName).toEqual(titleFamilyName);
-        expect(headerFamilyCountry).toEqual(titleFamilyCountry);
-        expect(headerFamilyIncome).toEqual(titleFamilyIncome);
+        expect(familyHeaderData).toEqual(familyTitleData);
     });
 });

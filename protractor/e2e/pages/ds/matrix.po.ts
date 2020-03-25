@@ -32,7 +32,7 @@ export class MatrixPo extends BaseComponent {
         ]).then(([familyName, familyIncome, familyCountry]) => ({ familyName, familyIncome, familyCountry }));
     }
     getVisitHomeBtn() {
-        return this.visitHomeBtn;
+        return this.visitHomeBtn.click();
     }
 
 }
