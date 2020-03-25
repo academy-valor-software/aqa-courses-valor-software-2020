@@ -23,6 +23,7 @@ export class FamilyHome extends FamilyInfoPage {
 
     getInfoInSticky(px: number) {
         cy.scrollTo(0, px);
+        
         return super.getFamilyInformation(this.nameAndCountrySticky, this.incomeSticky);
    }
 }

@@ -5,7 +5,7 @@ import { FamilyInfoPage } from './family.component.po';
 export class FamilyPreview extends FamilyInfoPage {
     private readonly income = '.view-image-block-container .header-container';
     private readonly nameAndCountry = '.description-title:not(div)';
-    private readonly visitHomeBtn = '.description-actions [href*=\'family?place\']';
+    private readonly visitHomeBtn = '.description-actions [href*="family?place"]';
 
     getFamilyInfo() {
         return super.getFamilyInformation(this.nameAndCountry, this.income);

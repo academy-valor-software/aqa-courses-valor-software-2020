@@ -4,15 +4,16 @@ import { MatrixPage } from '../support/pages/matrix.po';
 import { FamilyPreview } from '../support/pages/family-preview.po';
 import { FamilyHome } from '../support/pages/family-home.po';
 
-const matrix = new MatrixPage();
-const preview = new FamilyPreview();
-const home = new FamilyHome();
+describe('families parameters persistent for all pages', function () {
 
 beforeEach(function () {
     matrix.open();
 });
 
-describe('families parameters persistent for all pages', function () {
+    const matrix = new MatrixPage();
+    const preview = new FamilyPreview();
+    const home = new FamilyHome();
+
     it('family should have same income, country and name in matrix, preview and homepage', function () {
         matrix.clickOnRandomFamily();
         preview.getFamilyInfo();
