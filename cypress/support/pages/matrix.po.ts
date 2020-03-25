@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+import {FamilyData} from '../models/family-data.model';
+import {getRandom} from '../utils';
+
 export class MatrixPage {
     private readonly url = '/matrix';
     private readonly loader = 'loader';
@@ -10,6 +13,11 @@ export class MatrixPage {
     private readonly loaderOfImg = '.loader-content';
     private readonly spanIncome = '.place-image-box-income';
     private readonly defaultAmountPerRow = 4;
+    private readonly familyIncome = '.house-info-content .header-container';
+    private readonly familyName = 'h3.description-title span:first-child';
+    private readonly familyCountry = '.description-title span:nth-child(2)';
+    private readonly visitHomeBtn = '.description-button[href*="family"]';
+    private readonly familyCardLocator = '.image-content .cell-inner';
 
 
     openPage() {
@@ -65,4 +73,35 @@ export class MatrixPage {
     private clickBtnZoom(selector: string, scale: number) {
         cy.get(selector).click().location('search').should('eq', `?zoom=${scale}`);
     }
+
+    clickRandomFamilyCard() {
+        cy.server();
+        cy.route({
+            method: 'GET',
+            url: '**/v1/matrix-view-block/?placeId**'
+        }).as('getMatrixBlock');
+        cy.get(this.familyCardLocator).then(familyCards => {
+             familyCards[getRandom(familyCards.length - 1)].click();
+        cy.get(this.loader).should('have.attr', 'hidden').wait('@getMatrixBlock');
+        });
+    }
+
+    getFamilyData() {
+        const familyInfo: FamilyData = {name: '', country: '', income: ''};
+        cy.get(this.familyName).first().then($el => familyInfo.name = $el.text().replace('family,', '').trim())
+            .get(this.familyCountry).then(($el => familyInfo.country = $el.text().trim()))
+            .get(this.familyIncome).then($el => familyInfo.income = $el.text().replace('/month', '').replace('$', '').trim());
+        return cy.wrap(familyInfo);
+    }
+
+    clickVisitHome() {
+        cy.server();
+        cy.route({
+            method: 'GET',
+            url: '**/v1/home-header?**'
+        }).as('getHomeHeader');
+        cy.get(this.visitHomeBtn).click()
+            .get(this.loader).should('have.attr', 'hidden').wait('@getHomeHeader');
+    }
+
 }
