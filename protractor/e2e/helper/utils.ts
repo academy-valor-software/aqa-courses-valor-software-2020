@@ -16,3 +16,7 @@ export function concatEducationDetailsString(education: IEducation): string {
          `${startYear} - ${endYear}\n` +
          `(${educationDuration} years)`;
 }
+
+export function getRandomWithMax(maxNum: number): number {
+  return Math.floor(Math.random() * maxNum);
+}

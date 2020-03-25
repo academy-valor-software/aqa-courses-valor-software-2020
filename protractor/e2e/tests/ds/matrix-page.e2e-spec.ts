@@ -1,6 +1,6 @@
 import { MatrixPo } from '../../pages/ds/matrix.po';
 import { StreetComponentPo, Toggle } from '../../pages/ds/street-component.po';
-import {browser, ElementArrayFinder, ElementFinder} from 'protractor';
+import {ElementArrayFinder, ElementFinder} from 'protractor';
 import { FamilyPo } from '../../pages/ds/family-component.po';
 import {FamilyDetailsPO} from '../../pages/ds/family-details.po';
 import {FamilyHeaderPO} from '../../pages/ds/family-header.po';
@@ -10,7 +10,7 @@ import {FamilyHeaderPO} from '../../pages/ds/family-header.po';
 describe('Street component',  () => {
     const matrixPage = new MatrixPo();
     const streetComponent = new StreetComponentPo();
-    const familyComponent = new FamilyPo(6);
+
     const familyDetails = new FamilyDetailsPO();
     const familyHeader = new FamilyHeaderPO();
 
@@ -19,7 +19,7 @@ describe('Street component',  () => {
         await matrixPage.open();
     });
 
-    xit('should filter families on the page', async () => {
+    it('should filter families on the page', async () => {
         const minValue = await streetComponent.moveToddler(Toggle.LEFT, 300);
         const maxValue = await streetComponent.moveToddler(Toggle.RIGHT, -300);
 
@@ -36,7 +36,7 @@ describe('Street component',  () => {
     });
 
     it('should verify family data', async () => {
-        await familyComponent.clickOnFamily();
+        await matrixPage.clickRandomFamily();
 
         const familyData =
             await matrixPage.getFamilyData();

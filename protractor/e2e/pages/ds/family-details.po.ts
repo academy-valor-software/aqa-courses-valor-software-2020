@@ -8,7 +8,7 @@ export class FamilyDetailsPO {
 
     async getFamilyNameFromTitle(): Promise<string> {
         return this.familyNameTitle.getText()
-            .then(value => value.replace(' family', ''));
+            .then(value => value.replace('family', '').trim());
     }
 
     async getFamilyIncomeFromTitle(): Promise<number> {

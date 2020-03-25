@@ -1,6 +1,7 @@
 import {$$, $} from 'protractor';
 import {BaseComponent} from '../base.component';
 import {FamilyData} from '../../data/ds/family-data.interface';
+import {getRandomWithMax} from '../../helper/utils';
 
 export class MatrixPo extends BaseComponent {
     readonly url = '/matrix';
@@ -35,4 +36,7 @@ export class MatrixPo extends BaseComponent {
         return this.visitHomeBtn.click();
     }
 
+    clickRandomFamily() {
+        return this.allFamilies.then($el => $el[getRandomWithMax($el.length - 1)].click());
+    }
 }

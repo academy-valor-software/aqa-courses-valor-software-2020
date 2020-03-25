@@ -8,7 +8,7 @@ export class FamilyHeaderPO {
 
     async getHeaderFamilyName(): Promise<string> {
         return this.headerFamilyNameAndCountry.getText()
-            .then(value => String(value.split(' ' , 1)));
+            .then(value => String(value.split(' ' , 1)).trim());
     }
 
     async getHeaderFamilyCountry(): Promise<any> {
