@@ -19,7 +19,7 @@ describe('Street component',  () => {
         await matrixPage.open();
     });
 
-    it('should filter families on the page', async () => {
+    xit('should filter families on the page', async () => {
         const minValue = await streetComponent.moveToddler(Toggle.LEFT, 300);
         const maxValue = await streetComponent.moveToddler(Toggle.RIGHT, -300);
 
