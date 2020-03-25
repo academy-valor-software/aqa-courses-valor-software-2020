@@ -17,7 +17,8 @@ beforeEach(function () {
     it('family should have same income, country and name in matrix, preview and homepage', function () {
         matrix.clickOnRandomFamily();
         preview.getFamilyInfo();
-        preview.getFamilyInfo().then(viewInfo => {preview.clickVisitHome();
+        preview.getFamilyInfo().then(viewInfo => {
+            preview.clickVisitHome();
 
         home.getFamilyInfo().then(familyInfo => {
                 cy.wrap(viewInfo).should('deep.equal', familyInfo);
